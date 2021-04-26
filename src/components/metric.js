@@ -31,7 +31,7 @@ const Metric = ({ metric }) => {
 
       <p>{labelledBins.map(bin =>`${bin.label}: ${bin.percentage.toFixed(2)}%`).join(', ')}</p>
 
-      <div ref={gridRef} className="grid">
+      <div ref={gridRef} className="bars">
         {labelledBins.map((bin, i) => (
           <div key={i} className={`bar bar-${bin.labelSlug}`}></div>
         ))}

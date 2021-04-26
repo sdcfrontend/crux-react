@@ -1,0 +1,23 @@
+.bars {
+  display: grid;
+  grid-template-areas: '. . .';
+  grid-template-columns: var(--good) var(--needs-improvement) var(--poor);
+  max-width: 400px;
+  height: 2rem;
+}
+
+.bar {
+  transition: grid-template-columns 0.5s var(--easing);
+}
+
+.bar-good {
+  background-color: yellowgreen;
+}
+
+.bar-needs-improvement {
+  background-color: orange;
+}
+
+.bar-poor {
+  background-color: red;
+}
