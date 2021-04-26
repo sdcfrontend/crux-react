@@ -1,0 +1,32 @@
+.ui-control {
+    display: -webkit-flex;
+    display: flex;
+    gap: var(--spacing-s);
+    width: fit-content;
+    font-size: var(--font-s);
+}
+
+.ui-control--small {
+    font-size: var(--font-xs)
+}
+
+.ui-control--big {
+    font-size: var(--font-l);
+}
+
+.ui-control--joined {
+    font-size: var(--font-l);
+    gap: 0;
+}
+
+[class^=ui-control-]:is(select, input, button) {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--shade-0);
+    border: 1px solid var(--border-color);
+    color: var(--shade-6);
+    font: inherit;
+    font-weight: 400;
+    padding: 0.6em 0.9em;
+    border-radius: var(--border-radius);
+}

@@ -1,28 +1,29 @@
 @import 'base/vars.css';
 @import 'base/reset.css';
 @import 'base/elements.css';
-
 @import 'utilities/layout.css';
 @import 'utilities/spacing.css';
-
+@import 'base/ui-controls.css';
 .grid {
-  display: grid;
-  grid-template-areas: '. . .';
-  grid-template-columns: var(--good) var(--needs-improvement) var(--poor);
-  max-width: 400px;
-  height: 2rem;
+    display: grid;
+    grid-template-areas: '. . .';
+    grid-template-columns: var(--good) var(--needs-improvement) var(--poor);
+    max-width: 400px;
+    height: 2rem;
 }
 
 .bar {
-  transition: grid-template-columns 0.5s var(--easing);
+    transition: grid-template-columns 0.5s var(--easing);
 }
 
 .bar-good {
-  background-color: yellowgreen;
+    background-color: yellowgreen;
 }
+
 .bar-needs-improvement {
-  background-color: orange;
+    background-color: orange;
 }
+
 .bar-poor {
-  background-color: red;
+    background-color: red;
 }
