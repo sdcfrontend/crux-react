@@ -5,3 +5,31 @@
 .gap-m {
   gap: var(--spacing-m);
 }
+
+.gap-l {
+  gap: var(--spacing-l);
+}
+
+.pad-s {
+  padding: var(--spacing-s);
+}
+
+.pad-m {
+  padding: var(--spacing-m);
+}
+
+.pad-l {
+  gap: var(--spacing-l);
+}
+
+.mar-s {
+  margin: var(--spacing-s);
+}
+
+.mar-m {
+  margin: var(--spacing-m);
+}
+
+.mar-l {
+  margin: var(--spacing-l);
+}

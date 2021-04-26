@@ -20,7 +20,7 @@ const Picker = ({ sites, currentSite, setCurrentSite, pages, currentPage, setCur
   }
 
   return (
-    <div>
+    <div className="ui-control ui-control--tight">
       <Select
         options={sites}
         label="name"

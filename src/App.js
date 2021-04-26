@@ -65,59 +65,63 @@ function App() {
   }, []);
 
   return (
-    <div className="flex-col gap-m">
-      <h1>{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h1>
+    <div className="pad-m">
+      <div className="flex-col gap-l wrap">
+        <h1>{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h1>
 
-      <div className="flex gap-m">
-        <div className="flex-col gap-m">
-          <div className="flex gap-s">
-            <PagePicker
-              sites={sites}
-              currentSite={currentSite}
-              setCurrentSite={setCurrentSite}
-              pages={pages}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              requestBody={requestBody}
-              setRequestBody={setRequestBody}
-            />
-            <ComparisonPicker
-              isComparing={isComparing}
-              setIsComparing={setIsComparing}
-              setComparisonMetrics={setComparisonMetrics}
-              setComparisonMetricsLoading={setComparisonMetricsLoading}
-              currentDevice={currentDevice}
-            />
-          </div>
-          <DevicePicker
-            currentDevice={currentDevice}
-            setCurrentDevice={setCurrentDevice}
-            requestBody={requestBody}
-            setRequestBody={setRequestBody}
-          />
-          <div className="flex gap-s">
-            <Metrics
-              name={currentSite?.name}
-              metrics={metrics}
-              chosenMetrics={chosenMetrics}
-              metricsLoading={metricsLoading}
-            />
-            {isComparing &&
-              <Metrics
-                name="Comparison"
-                metrics={comparisonMetrics}
-                chosenMetrics={chosenMetrics}
-                metricsLoading={comparisonMetricsLoading}
+        <div className="flex gap-l">
+          <div className="flex-col gap-l">
+            <div className="flex-col gap-m">
+              <div className="flex gap-s">
+                <PagePicker
+                  sites={sites}
+                  currentSite={currentSite}
+                  setCurrentSite={setCurrentSite}
+                  pages={pages}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  requestBody={requestBody}
+                  setRequestBody={setRequestBody}
+                />
+                <ComparisonPicker
+                  isComparing={isComparing}
+                  setIsComparing={setIsComparing}
+                  setComparisonMetrics={setComparisonMetrics}
+                  setComparisonMetricsLoading={setComparisonMetricsLoading}
+                  currentDevice={currentDevice}
+                />
+              </div>
+              <DevicePicker
+                currentDevice={currentDevice}
+                setCurrentDevice={setCurrentDevice}
+                requestBody={requestBody}
+                setRequestBody={setRequestBody}
               />
-            }
+            </div>
+            <div className="flex gap-s">
+              <Metrics
+                name={currentSite?.name}
+                metrics={metrics}
+                chosenMetrics={chosenMetrics}
+                metricsLoading={metricsLoading}
+              />
+              {isComparing &&
+                <Metrics
+                  name="Comparison"
+                  metrics={comparisonMetrics}
+                  chosenMetrics={chosenMetrics}
+                  metricsLoading={comparisonMetricsLoading}
+                />
+              }
+            </div>
           </div>
-        </div>
 
-        <Settings
-          metrics={metrics}
-          chosenMetrics={chosenMetrics}
-          setChosenMetrics={setChosenMetrics}
-        />
+          <Settings
+            metrics={metrics}
+            chosenMetrics={chosenMetrics}
+            setChosenMetrics={setChosenMetrics}
+          />
+        </div>
       </div>
     </div>
   );

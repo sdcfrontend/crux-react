@@ -1,3 +1,9 @@
+.wrap {
+  width: 100%;
+  max-width: var(--max-site-width);
+  margin: 0 auto;
+}
+
 .flex,
 .flex-col {
   display: flex;

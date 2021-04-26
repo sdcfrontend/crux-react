@@ -8,11 +8,11 @@ const DevicePicker = ({ currentDevice, setCurrentDevice, requestBody, setRequest
   }
 
   return (
-    <div className="flex gap-s">
-      <button onClick={handleDeviceChange} value="ALL_FORM_FACTORS" disabled={currentDevice === 'ALL_FORM_FACTORS'}>All</button>
-      <button onClick={handleDeviceChange} value="PHONE" disabled={currentDevice === 'PHONE'}>Phone</button>
-      <button onClick={handleDeviceChange} value="DESKTOP" disabled={currentDevice === 'DESKTOP'}>Desktop</button>
-      <button onClick={handleDeviceChange} value="TABLET" disabled={currentDevice === 'TABLET'}>Tablet</button>
+    <div className="ui-control">
+      <button className="ui-control-button" onClick={handleDeviceChange} value="ALL_FORM_FACTORS" disabled={currentDevice === 'ALL_FORM_FACTORS'}>All</button>
+      <button className="ui-control-button" onClick={handleDeviceChange} value="PHONE" disabled={currentDevice === 'PHONE'}>Phone</button>
+      <button className="ui-control-button" onClick={handleDeviceChange} value="DESKTOP" disabled={currentDevice === 'DESKTOP'}>Desktop</button>
+      <button className="ui-control-button" onClick={handleDeviceChange} value="TABLET" disabled={currentDevice === 'TABLET'}>Tablet</button>
     </div>
   );
 }

@@ -45,9 +45,9 @@ const ComparisonPicker = ({ isComparing, setIsComparing, setComparisonMetrics, s
   }
 
   return (
-    <form>
-      <input type="text" onChange={handleInput}/>
-      <button onClick={handleClick}>Go</button>
+    <form className="ui-control ui-control--tight">
+      <input className="ui-control-input" type="text" onChange={handleInput}/>
+      <button className="ui-control-button" onClick={handleClick}>Go</button>
     </form>
   );
 }
