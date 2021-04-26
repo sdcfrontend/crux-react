@@ -1,6 +1,6 @@
 .ui-control {
-    display: -webkit-flex;
     display: flex;
+    align-items: center;
     gap: var(--spacing-s);
     width: fit-content;
     max-width: 100%;
@@ -21,8 +21,10 @@
     cursor: pointer;
 }
 
+.ui-control-search,
 .ui-control-search :is(input) {
     border-radius: 100px;
+    width: 100%;
 }
 
 .ui-control--small {
