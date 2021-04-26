@@ -3,20 +3,9 @@
     display: flex;
     gap: var(--spacing-s);
     width: fit-content;
+    max-width: 100%;
     font-size: var(--font-s);
-}
-
-.ui-control--small {
-    font-size: var(--font-xs)
-}
-
-.ui-control--big {
-    font-size: var(--font-l);
-}
-
-.ui-control--joined {
-    font-size: var(--font-l);
-    gap: 0;
+    position: relative;
 }
 
 [class^=ui-control-]:is(select, input, button) {
@@ -29,4 +18,53 @@
     font-weight: 400;
     padding: 0.6em 0.9em;
     border-radius: var(--border-radius);
+}
+
+.ui-control-search :is(input) {
+    border-radius: 100px;
+}
+
+.ui-control--small {
+    font-size: var(--font-xs)
+}
+
+.ui-control--big {
+    font-size: var(--font-l);
+}
+
+.ui-control--joined {
+    gap: 0;
+}
+
+.ui-control--tight {
+    gap: var(--spacing-xs);
+}
+
+.ui-control--loose {
+    gap: var(--spacing-m);
+}
+
+.ui-control--fill {
+    width: 100%;
+}
+
+.ui-control--stretch> :is(select, input, button) {
+    flex: 1;
+    min-width: 0;
+}
+
+.ui-control--joined>:is(select, input, button) {
+    border-right-style: none;
+    border-radius: 0;
+}
+
+.ui-control--joined>:first-child:is(select, input, button) {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.ui-control--joined>:last-child:is(select, input, button) {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    border-right-style: solid;
 }
