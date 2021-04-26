@@ -1,0 +1,17 @@
+html {
+  font-family: sans-serif;
+  font-size: var(--base-font-size);
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}

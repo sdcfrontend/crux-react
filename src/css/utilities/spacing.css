@@ -1,0 +1,7 @@
+.gap-s {
+  gap: var(--spacing-s);
+}
+
+.gap-m {
+  gap: var(--spacing-m);
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "1",
+    "name": "Sky Sports",
+    "pages": [
+      "https://www.skysports.com",
+      "https://www.skysports.com/football"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Sky News",
+    "pages": ["https://news.sky.com"]
+  }
+]
