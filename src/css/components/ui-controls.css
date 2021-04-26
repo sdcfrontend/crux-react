@@ -1,6 +1,6 @@
 .ui-control {
-    display: -webkit-flex;
     display: flex;
+    align-items: center;
     gap: var(--spacing-s);
     width: fit-content;
     max-width: 100%;
