@@ -20,8 +20,10 @@
     border-radius: var(--border-radius);
 }
 
+.ui-control-search,
 .ui-control-search :is(input) {
     border-radius: 100px;
+    width: 100%;
 }
 
 .ui-control--small {
