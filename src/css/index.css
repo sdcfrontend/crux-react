@@ -5,4 +5,5 @@
 @import 'utilities/layout.css';
 @import 'utilities/spacing.css';
 
+@import 'components/bars.css';
 @import 'components/ui-controls.css';
