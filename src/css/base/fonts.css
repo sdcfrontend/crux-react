@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'Sky Text';
-  src: url(/fonts/sky-reg.woff) format('woff');
+  src: local('sky-reg'), url(../../fonts/sky-reg.woff) format('woff');
   font-display: optional;
 }
 
 @font-face {
   font-family: 'Sky Text';
-  src: url(/fonts/sky-med.woff) format('woff');
+  src: local('sky-med'), url(../../fonts/sky-med.woff) format('woff');
   font-weight: bold;
   font-display: optional
 }
