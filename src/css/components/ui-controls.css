@@ -4,7 +4,7 @@
     gap: var(--spacing-s);
     width: fit-content;
     max-width: 100%;
-    font-size: var(--font-s);
+    font-size: var(--supporting-text);
     position: relative;
 }
 
@@ -16,9 +16,10 @@
     color: var(--shade-6);
     font: inherit;
     font-weight: 400;
-    padding: 0.6em 0.9em;
+    padding: 0.5em 0.9em;
     border-radius: var(--border-radius);
     cursor: pointer;
+    line-height: 1;
 }
 
 .ui-control-search,
@@ -28,11 +29,11 @@
 }
 
 .ui-control--small {
-    font-size: var(--font-xs)
+    font-size: var(--label-text)
 }
 
 .ui-control--big {
-    font-size: var(--font-l);
+    font-size: var(--font-scale-xs);
 }
 
 .ui-control--joined {

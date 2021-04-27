@@ -1,5 +1,4 @@
 :root {
-    --base-font-size: clamp(13px, 1.1vw, 18px);
     --max-site-width: 80rem;
     --font-xs: 0.9rem;
     --font-s: 1rem;
@@ -15,15 +14,5 @@
     --spacing-l: calc(var(--spacing-base) * 4);
     --spacing-xl: calc(var(--spacing-base) * 6);
     --easing: cubic-bezier(0.165, 0.84, 0.44, 1);
-    --shade-0: white;
-    --shade-1: #eee;
-    --shade-2: #ccc;
-    --shade-3: #aaa;
-    --shade-4: #999;
-    --shade-5: #666;
-    --shade-6: #333;
-    --shade-7: #111;
-    --shade-8: #000;
-    --border-color: var(--shade-2);
     --border-radius: 5px;
 }
