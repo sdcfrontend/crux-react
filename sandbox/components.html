@@ -9,193 +9,192 @@
     <link href="../src/css/index.css" rel="stylesheet">
     <style>
         body {
-            padding: 1rem;
+            padding: 1rem 0;
         }
         
-        body>.ui-control-block,
-        body>.ui-panel {
+        .wrap>.ui-control-block,
+        .wrap>.ui-panel {
             margin-bottom: 1rem;
         }
     </style>
 </head>
 
 <body>
-
-
-    <div class="ui-control-block">
-        <div class="ui-control">
-            <select name="" id="" class="ui-control-select">
+    <div class="wrap wrap-padding">
+        <div class="ui-control-block">
+            <div class="ui-control">
+                <select name="" id="" class="ui-control-select">
             <option value="">Option 1</option>
             <option value="">Option 2</option>
         </select>
-            <span class="ui-control-icon ui-icon--down"></span>
-        </div>
+                <span class="ui-control-icon ui-icon--down"></span>
+            </div>
 
-        <div class="ui-control-divider">/</div>
+            <div class="ui-control-divider">/</div>
 
-        <div class="ui-control">
-            <select name="" id="" class="ui-control-select" disabled>
+            <div class="ui-control">
+                <select name="" id="" class="ui-control-select" disabled>
             <option value="">Option 1</option>
             <option value="">Option 2</option>
         </select>
-            <span class="ui-control-icon ui-icon--down"></span>
+                <span class="ui-control-icon ui-icon--down"></span>
+            </div>
+
+            <div class="ui-control-divider"></div>
+
+
+            <div class="ui-control-block" data-joined>
+                <div class="ui-control">
+                    <button class="ui-control-button">Mobile</button>
+                </div>
+                <div class="ui-control">
+                    <button class="ui-control-button" data-active>Desktop</button>
+                </div>
+
+            </div>
+        </div>
+        <h5>tabs</h5>
+        <div class="ui-control-block" data-tabs data-center>
+            <div class="ui-control">
+                <button class="ui-control-button" data-active>Targets</button>
+            </div>
+            <div class="ui-control">
+                <button class="ui-control-button">Compare</button>
+            </div>
+        </div>
+        <div class="ui-panel">
+            A panel for some content
         </div>
 
-        <div class="ui-control-divider"></div>
 
+        <h5>select box</h5>
+        <div class="ui-control-block">
+            <div class="ui-control">
+                <select name="" id="" class="ui-control-select">
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+        </select>
+                <span class="ui-control-icon ui-icon--down"></span>
+            </div>
 
+            <div class="ui-control">
+                <select name="" id="" class="ui-control-select" data-active>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+        </select>
+                <span class="ui-control-icon ui-icon--down"></span>
+            </div>
+        </div>
+
+        <h5>buttons</h5>
+        <div class="ui-control-block">
+            <div class="ui-control">
+                <button class="ui-control-button">Category</button>
+            </div>
+            <div class="ui-control">
+                <button class="ui-control-button">Score</button>
+            </div>
+
+            <div class="ui-control">
+                <button class="ui-control-button"><span class="ui-control-icon ui-icon--search" aria-hidden="true"></span>With Icon</button>
+            </div>
+        </div>
+
+        <h5>joined buttons</h5>
         <div class="ui-control-block" data-joined>
             <div class="ui-control">
-                <button class="ui-control-button">Mobile</button>
+                <button class="ui-control-button">Category</button>
             </div>
             <div class="ui-control">
-                <button class="ui-control-button" data-active>Desktop</button>
+                <button class="ui-control-button" data-active>Category</button>
+            </div>
+            <div class="ui-control">
+                <button class="ui-control-button">Category</button>
+            </div>
+        </div>
+
+        <h5>inputs</h5>
+        <div class="ui-control-block">
+            <input class="ui-control-input" value="">
+        </div>
+
+        <h5>inputs with divider</h5>
+        <div class="ui-control-block">
+            <div class="ui-control">
+                <input class="ui-control-input" value="">
+            </div>
+            <div class="ui-control-divider">/</div>
+            <div class="ui-control">
+                <input class="ui-control-input" value="" disabled>
+            </div>
+        </div>
+
+        <h5>search</h5>
+        <div class="ui-control-block">
+            <div class="ui-control" value="Category">
+                <input class="ui-control-search" placeholder="Search here">
+                <span class="ui-control-icon ui-icon--search"></span>
             </div>
 
         </div>
-    </div>
-    <h5>tabs</h5>
-    <div class="ui-control-block" data-tabs data-center>
-        <div class="ui-control">
-            <button class="ui-control-button" data-active>Targets</button>
-        </div>
-        <div class="ui-control">
-            <button class="ui-control-button">Compare</button>
-        </div>
-    </div>
-    <div class="ui-panel">
-        A panel for some content
-    </div>
 
+        <h5>radio buttons</h5>
+        <div class="ui-control-block" data-vertical>
+            <div class="ui-control" value="Category">
+                <input class="ui-control-radio" type="radio" id="radio-4" name="option">
+                <label for="radio-4">Option 1</label>
+            </div>
 
-    <h5>select box</h5>
-    <div class="ui-control-block">
-        <div class="ui-control">
-            <select name="" id="" class="ui-control-select">
-            <option value="">Option 1</option>
-            <option value="">Option 2</option>
-        </select>
-            <span class="ui-control-icon ui-icon--down"></span>
+            <div class="ui-control" value="Category">
+                <input class="ui-control-radio" type="radio" id="radio-5" name="option">
+                <label for="radio-5">Option 2</label>
+            </div>
+
+            <div class="ui-control" value="Category">
+                <input class="ui-control-radio" type="radio" id="radio-6" name="option">
+                <label for="radio-6">Option 3</label>
+            </div>
+
         </div>
 
-        <div class="ui-control">
-            <select name="" id="" class="ui-control-select" data-active>
-            <option value="">Option 1</option>
-            <option value="">Option 2</option>
-        </select>
-            <span class="ui-control-icon ui-icon--down"></span>
-        </div>
-    </div>
+        <h5>checkboxes</h5>
+        <div class="ui-control-block" data-vertical>
+            <div class="ui-control" value="Category">
+                <input class="ui-control-checkbox" type="checkbox" id="checkbox-1" name="option1" value="1">
+                <label for="checkbox-1">Option 1</label>
+            </div>
 
-    <h5>buttons</h5>
-    <div class="ui-control-block">
-        <div class="ui-control">
-            <button class="ui-control-button">Category</button>
+            <div class="ui-control" value="Category">
+                <input class="ui-control-checkbox" type="checkbox" id="checkbox-2" name="option2" value="2">
+                <label for="checkbox-2">Option 2</label>
+            </div>
+
+            <div class="ui-control" value="Category">
+                <input class="ui-control-checkbox" type="checkbox" id="checkbox-3" name="option3" value="3">
+                <label for="checkbox-3">Option 3</label>
+            </div>
+
         </div>
-        <div class="ui-control">
-            <button class="ui-control-button">Score</button>
+        <h5>badges</h5>
+        <div class="ui-badge">
+            <div class="ui-badge-result" data-good>
+                85%
+            </div>
         </div>
 
-        <div class="ui-control">
-            <button class="ui-control-button"><span class="ui-control-icon ui-icon--search" aria-hidden="true"></span>With Icon</button>
+        <div class="ui-badge">
+            <div class="ui-badge-result" data-average>
+                85%
+            </div>
         </div>
-    </div>
 
-    <h5>joined buttons</h5>
-    <div class="ui-control-block" data-joined>
-        <div class="ui-control">
-            <button class="ui-control-button">Category</button>
-        </div>
-        <div class="ui-control">
-            <button class="ui-control-button" data-active>Category</button>
-        </div>
-        <div class="ui-control">
-            <button class="ui-control-button">Category</button>
+        <div class="ui-badge">
+            <div class="ui-badge-result" data-bad>
+                85%
+            </div>
+            <button class="ui-control-button"><span class="ui-control-icon"></span>Diagnose</button>
         </div>
     </div>
-
-    <h5>inputs</h5>
-    <div class="ui-control-block">
-        <input class="ui-control-input" value="">
-    </div>
-
-    <h5>inputs with divider</h5>
-    <div class="ui-control-block">
-        <div class="ui-control">
-            <input class="ui-control-input" value="">
-        </div>
-        <div class="ui-control-divider">/</div>
-        <div class="ui-control">
-            <input class="ui-control-input" value="" disabled>
-        </div>
-    </div>
-
-    <h5>search</h5>
-    <div class="ui-control-block">
-        <div class="ui-control" value="Category">
-            <input class="ui-control-search" placeholder="Search here">
-            <span class="ui-control-icon ui-icon--search"></span>
-        </div>
-
-    </div>
-
-    <h5>radio buttons</h5>
-    <div class="ui-control-block" data-vertical>
-        <div class="ui-control" value="Category">
-            <input class="ui-control-radio" type="radio" id="radio-4" name="option">
-            <label for="radio-4">Option 1</label>
-        </div>
-
-        <div class="ui-control" value="Category">
-            <input class="ui-control-radio" type="radio" id="radio-5" name="option">
-            <label for="radio-5">Option 2</label>
-        </div>
-
-        <div class="ui-control" value="Category">
-            <input class="ui-control-radio" type="radio" id="radio-6" name="option">
-            <label for="radio-6">Option 3</label>
-        </div>
-
-    </div>
-
-    <h5>checkboxes</h5>
-    <div class="ui-control-block" data-vertical>
-        <div class="ui-control" value="Category">
-            <input class="ui-control-checkbox" type="checkbox" id="checkbox-1" name="option1" value="1">
-            <label for="checkbox-1">Option 1</label>
-        </div>
-
-        <div class="ui-control" value="Category">
-            <input class="ui-control-checkbox" type="checkbox" id="checkbox-2" name="option2" value="2">
-            <label for="checkbox-2">Option 2</label>
-        </div>
-
-        <div class="ui-control" value="Category">
-            <input class="ui-control-checkbox" type="checkbox" id="checkbox-3" name="option3" value="3">
-            <label for="checkbox-3">Option 3</label>
-        </div>
-
-    </div>
-    <h5>badges</h5>
-    <div class="ui-badge">
-        <div class="ui-badge-result" data-good>
-            85%
-        </div>
-    </div>
-
-    <div class="ui-badge">
-        <div class="ui-badge-result" data-average>
-            85%
-        </div>
-    </div>
-
-    <div class="ui-badge">
-        <div class="ui-badge-result" data-bad>
-            85%
-        </div>
-        <button class="ui-control-button"><span class="ui-control-icon"></span>Diagnose</button>
-    </div>
-
 </body>
 
 </html>
