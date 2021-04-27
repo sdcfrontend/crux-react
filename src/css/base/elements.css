@@ -1,21 +1,22 @@
 html {
-  font-family: 'Sky Text', sans-serif;
-  font-size: var(--base-font-size);
-  color: var(--text-color);
+    font-family: 'Sky Text', sans-serif;
+    font-size: var(--base-font-size);
+    color: var(--text-color);
 }
 
 body {
-  min-height: 100vh;
+    min-height: 100vh;
+    background: var(--gradient-radial)
 }
 
 a {
-  color: var(--link-color);
-  font-weight: bold;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 1px;
+    color: var(--link-color);
+    font-weight: bold;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 1px;
 }
 
 img {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
