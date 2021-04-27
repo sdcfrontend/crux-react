@@ -1,11 +1,49 @@
-.ui-control {
+/* formatting container for ui elements */
+
+.ui-control-block {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: var(--spacing-s);
+    gap: var(--spacing-xs) var(--spacing-s);
     width: fit-content;
     max-width: 100%;
-    font-size: var(--supporting-text);
     position: relative;
+}
+
+.ui-control-block[data-vertical] {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ui-control-block[data-center] {
+    justify-content: center;
+    width: 100%;
+}
+
+
+/* general ui element style */
+
+.ui-control {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    line-height: 1;
+    font-size: calc(var(--component-text) - 1px);
+}
+
+.ui-control-icon {
+    position: absolute;
+    width: 2em;
+    height: 100%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35%;
+    pointer-events: none;
 }
 
 [class^=ui-control-]:is(select, input, button) {
@@ -16,59 +54,167 @@
     color: var(--shade-6);
     font: inherit;
     font-weight: 400;
-    padding: 0.5em 0.9em;
+    padding: 0.54em 0.9em;
     border-radius: var(--border-radius);
-    cursor: pointer;
     line-height: 1;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.01), var(--drop-shadow);
 }
 
-.ui-control-search,
-.ui-control-search :is(input) {
-    border-radius: 100px;
-    width: 100%;
-}
 
-.ui-control--small {
-    font-size: var(--label-text)
-}
+/* radio button */
 
-.ui-control--big {
-    font-size: var(--font-scale-xs);
-}
-
-.ui-control--joined {
-    gap: 0;
-}
-
-.ui-control--tight {
+.ui-control-radio:is(input) {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    padding: 0;
+    border: 2px solid var(--link-color);
     gap: var(--spacing-xs);
 }
 
-.ui-control--loose {
-    gap: var(--spacing-m);
+.ui-control-radio:is(input):checked {
+    background: radial-gradient(white 35%, var(--link-color) 35%);
 }
 
-.ui-control--fill {
+
+/* checkbox */
+
+.ui-control-checkbox:is(input) {
+    width: 1em;
+    height: 1em;
+    border-radius: var(--border-radius);
+    padding: 0;
+    border: 2px solid var(--link-color);
+    gap: var(--spacing-xs);
+}
+
+.ui-control-checkbox:is(input):checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z'/%3E%3C/svg%3E");
+    background-size: 95%;
+    background-color: var(--link-color);
+}
+
+
+/* button */
+
+.ui-control-button {
+    cursor: pointer;
+}
+
+.ui-control-button .ui-control-icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    transform: none;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.25em;
+    margin-left: -0.2em;
+    background-size: 85%;
+    margin-top: -0.2em;
+}
+
+
+/* select box */
+
+.ui-control-select:is(select) {
+    padding-right: 2.25em;
+}
+
+
+/* active state */
+
+[class^=ui-control-][data-active]:is(select,
+input,
+button) {
+    background: var(--link-color);
+    border-color: var(--link-color);
+    color: var(--text-color-invert);
+}
+
+[class^=ui-control-][data-active]~.ui-control-icon,
+[class^=ui-control-][data-active] .ui-control-icon {
+    filter: invert(1);
+}
+
+
+/* disabled state */
+
+[class^=ui-control-][disabled]:is(select,
+input,
+button) {
+    background: var(--component-shade);
+    color: var(--text-color-tertiary);
+}
+
+[class^=ui-control-][disabled]:is(select,
+input,
+button)~.ui-control-icon {
+    opacity: 0.25;
+}
+
+
+/* search */
+
+.ui-control-search:is(input) {
+    border-radius: 100px;
     width: 100%;
+    padding-right: 2.5em;
 }
 
-.ui-control--stretch> :is(select, input, button) {
-    flex: 1;
-    min-width: 0;
+.ui-control-search:is(input)~.ui-control-icon {
+    right: 0.25em;
+    background-size: 40%;
+    opacity: 0.4
 }
 
-.ui-control--joined>:is(select, input, button) {
+
+/* control elements are joined */
+
+[class*='ui-control'][data-joined] {
+    gap: 0;
+}
+
+[class*='ui-control'][data-joined] :is(select,
+input,
+button) {
     border-right-style: none;
     border-radius: 0;
 }
 
-.ui-control--joined>:first-child:is(select, input, button) {
+[class*='ui-control'][data-joined]>:first-child> :is(select,
+input,
+button) {
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
 }
 
-.ui-control--joined>:last-child:is(select, input, button) {
+[class*='ui-control'][data-joined]>:last-child> :is(select,
+input,
+button) {
     border-top-right-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
     border-right-style: solid;
+}
+
+
+/* tabs */
+
+[class*='ui-control'][data-tabs] [data-active]:after {
+    content: "";
+    position: absolute;
+    width: 0.7em;
+    height: 0.7em;
+    background: var(--link-color);
+    top: calc(100% - 0.37em);
+    left: calc(50% - 0.35em);
+    transform: rotate(-45deg);
+}
+
+.ui-icon--down {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10716.1 7753.5 22.3 12.3'%3E%3Cpath d='m-10716.1 7754.7c0 .2.1.4.2.5l.2.2 10.1 10.1c.2.2.4.3.7.3s.5-.1.7-.3l10.1-10.1.1-.1c.2-.2.2-.3.2-.5s-.2-.4-.4-.7c-.2-.2-.4-.4-.6-.5-.1 0-.1-.1-.1-.1l-.5.5-9.2 9.2-.4.4-.4-.4-9.2-9.2-.5-.5-.1.1c-.2.2-.4.3-.6.5-.1.2-.3.4-.3.6z'/%3E%3C/svg%3E");
+}
+
+.ui-icon--search {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048'%3E%3Cpath d='M2038.957 1834.615l-636.008-634.508c83.804-123.102 133.1-271.75 133.1-432.1 0-424.353-343.702-768.01-768-768.01-2.655 0-5.202.407-7.905.407C564.7-2.252 368.395 70.45 219.293 219.552 69.145 369.452-3.457 567.21.246 763.71c0 1.444-.203 2.75-.203 4.296 0 424.203 343.75 768.007 768.008 768.007 159.353 0 307.298-48.602 430-131.5l636.204 634.398c12 12.103 31.703 12.103 43.703.103l161-160.797c12-12 12-31.702 0-43.6zm-896.805-693.008c-187.852 187.805-476.805 212.102-691.555 74.398-143.25-107.797-245.75-277.296-245.75-448 0-282.805 280.398-563.203 563.203-563.203 171.602 0 341.898 103.5 449.703 247.898 136.4 214.658 111.595 501.806-75.6 688.907z'%3E%3C/path%3E%3C/svg%3E");
 }

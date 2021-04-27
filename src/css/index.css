@@ -3,9 +3,10 @@
 @import 'base/vars.css';
 @import 'base/reset.css';
 @import 'base/elements.css';
-
+@import 'components/header.css';
 @import 'utilities/layout.css';
 @import 'utilities/spacing.css';
-
 @import 'components/bars.css';
 @import 'components/ui-controls.css';
+@import 'components/ui-panels.css';
+@import 'components/ui-badge.css';

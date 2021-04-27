@@ -1,0 +1,7 @@
+.ui-panel {
+    background: var(--component-bg);
+    border: 1px solid var(--border-color);
+    padding: var(--component-padding);
+    box-shadow: var(--drop-shadow);
+    border-radius: var(--border-radius);
+}

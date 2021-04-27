@@ -1,35 +1,35 @@
-.gap-s {
-  gap: var(--spacing-s);
+.gap-xs[class] {
+    gap: var(--space-xs)
 }
 
-.gap-m {
-  gap: var(--spacing-m);
+.gap-s[class] {
+    gap: var(--space-s)
 }
 
-.gap-l {
-  gap: var(--spacing-l);
+.gap-m[class] {
+    gap: var(--space-m);
 }
 
-.pad-s {
-  padding: var(--spacing-s);
+.gap-l[class] {
+    gap: var(--space-l);
 }
 
-.pad-m {
-  padding: var(--spacing-m);
+.gap-xl[class] {
+    gap: var(--space-xl);
 }
 
-.pad-l {
-  gap: var(--spacing-l);
+.mar-s[class] {
+    margin-bottom: var(--space-s);
 }
 
-.mar-s {
-  margin: var(--spacing-s);
+.mar-m[class] {
+    margin-bottom: var(--space-m);
 }
 
-.mar-m {
-  margin: var(--spacing-m);
+.mar-l[class] {
+    margin-bottom: var(--space-l);
 }
 
-.mar-l {
-  margin: var(--spacing-l);
+.mar-xl[class] {
+    margin-bottom: var(--space-xl);
 }

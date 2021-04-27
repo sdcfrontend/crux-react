@@ -1,5 +1,5 @@
 :root {
-    --max-site-width: 80rem;
+    --max-site-width: 996px;
     --font-xs: 0.9rem;
     --font-s: 1rem;
     --font-m: 1.2rem;
@@ -15,4 +15,8 @@
     --spacing-xl: calc(var(--spacing-base) * 6);
     --easing: cubic-bezier(0.165, 0.84, 0.44, 1);
     --border-radius: 5px;
+    --drop-shadow: 0 2px 1px rgba(0, 0, 0, 0.025);
+    --metric-good: hsl(118, 41%, 49%);
+    --metric-average: hsl(31, 78%, 53%);
+    --metric-bad: hsl(359, 80%, 50%);
 }

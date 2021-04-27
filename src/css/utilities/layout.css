@@ -1,14 +1,19 @@
 .wrap {
-  width: 100%;
-  max-width: var(--max-site-width);
-  margin: 0 auto;
+    width: min(100%, var(--max-site-width));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrap-padding {
+    padding-left: var(--component-padding);
+    padding-right: var(--component-padding);
 }
 
 .flex,
 .flex-col {
-  display: flex;
+    display: flex;
 }
 
 .flex-col {
-  flex-direction: column;
+    flex-direction: column;
 }
