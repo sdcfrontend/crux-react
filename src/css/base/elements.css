@@ -1,11 +1,11 @@
 html {
+  font-family: 'Sky Text', sans-serif;
   font-size: var(--base-font-size);
   color: var(--text-color);
 }
 
 body {
   min-height: 100vh;
-  font-family: 'Sky Text', sans-serif;
 }
 
 a {

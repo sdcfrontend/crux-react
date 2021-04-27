@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import './fonts/sky-reg.woff';
 import './fonts/sky-med.woff';
-import './index.css';
+import './css/index.css';
 
 ReactDOM.render(
   <React.StrictMode>
