@@ -12,7 +12,7 @@
             padding: 1rem;
         }
         
-        body > .ui-control-block {
+        body>.ui-control-block {
             margin-bottom: 1rem;
         }
     </style>
@@ -50,8 +50,20 @@
             <div class="ui-control">
                 <button class="ui-control-button" data-active>Desktop</button>
             </div>
-            
+
         </div>
+    </div>
+    <h5>tabs</h5>
+    <div class="ui-control-block" data-tabs data-center>
+        <div class="ui-control">
+            <button class="ui-control-button">Targets</button>
+        </div>
+        <div class="ui-control">
+            <button class="ui-control-button" data-active>Compare</button>
+        </div>
+    </div>
+    <div class="ui-panel">
+        A panel for some content
     </div>
 
 
@@ -101,16 +113,6 @@
         </div>
     </div>
 
-    <h5>tabs</h5>
-    <div class="ui-control-block" data-tabs>
-        <div class="ui-control">
-            <button class="ui-control-button">Targets</button>
-        </div>
-        <div class="ui-control">
-            <button class="ui-control-button" data-active>Compare</button>
-        </div>
-    </div>
-
     <h5>inputs</h5>
     <div class="ui-control-block">
         <input class="ui-control-input" value="">
@@ -137,7 +139,7 @@
     </div>
 
     <h5>radio buttons</h5>
-    <div class="ui-control-block ui-control-block--vertical">
+    <div class="ui-control-block" data-vertical>
         <div class="ui-control" value="Category">
             <input class="ui-control-radio" type="radio" id="radio-4" name="option">
             <label for="radio-4">Option 1</label>
@@ -156,7 +158,7 @@
     </div>
 
     <h5>checkboxes</h5>
-    <div class="ui-control-block ui-control-block--vertical">
+    <div class="ui-control-block" data-vertical>
         <div class="ui-control" value="Category">
             <input class="ui-control-checkbox" type="checkbox" id="checkbox-1" name="option1" value="1">
             <label for="checkbox-1">Option 1</label>
@@ -173,7 +175,7 @@
         </div>
 
     </div>
-
+    <h5>badges</h5>
     <div class="ui-badge">
         <div class="ui-badge-result" data-good>
             85%
