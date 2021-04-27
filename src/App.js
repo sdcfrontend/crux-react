@@ -41,14 +41,14 @@ function App() {
     const loadSites = async () => {
       setPagesLoading(true);
 
-      const response = await fetch('./data/sites.json');
+      const response = await fetch('http://localhost:4000/sites');
       const data = await response.json();
 
       setPagesLoading(false);
       setSites(data);
       setCurrentSite(data[0]);
       setPages(data[0].pages);
-      setCurrentPage(data[0].pages[0]);
+      setCurrentPage(data[0].pages[0].url);
     }
 
     try {
