@@ -12,13 +12,49 @@
             padding: 1rem;
         }
         
-        .ui-control-block {
+        body > .ui-control-block {
             margin-bottom: 1rem;
         }
     </style>
 </head>
 
 <body>
+
+
+    <div class="ui-control-block">
+        <div class="ui-control">
+            <select name="" id="" class="ui-control-select">
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+        </select>
+            <span class="ui-control-icon"></span>
+        </div>
+
+        <div class="ui-control-divider">/</div>
+
+        <div class="ui-control">
+            <select name="" id="" class="ui-control-select" disabled>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+        </select>
+            <span class="ui-control-icon"></span>
+        </div>
+
+        <div class="ui-control-divider"></div>
+
+
+        <div class="ui-control-block" data-joined>
+            <div class="ui-control">
+                <button class="ui-control-button">Mobile</button>
+            </div>
+            <div class="ui-control">
+                <button class="ui-control-button" data-active>Desktop</button>
+            </div>
+            
+        </div>
+    </div>
+
+
     <h5>select box</h5>
     <div class="ui-control-block">
         <div class="ui-control">

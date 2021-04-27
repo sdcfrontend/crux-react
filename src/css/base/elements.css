@@ -9,7 +9,10 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 1px;
 }
 
 img {
