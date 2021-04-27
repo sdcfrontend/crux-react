@@ -12,7 +12,7 @@
             padding: 1rem;
         }
         
-        .ui-control {
+        .ui-control-block {
             margin-bottom: 1rem;
         }
     </style>
@@ -20,63 +20,81 @@
 
 <body>
     <h5>select box</h5>
-    <div class="ui-control">
-        <select name="" id="" class="ui-control-select">
+    <div class="ui-control-block">
+        <div class="ui-control">
+            <select name="" id="" class="ui-control-select">
             <option value="">Option 1</option>
             <option value="">Option 2</option>
         </select>
+            <span class="ui-control-icon"></span>
+        </div>
+
+        <div class="ui-control">
+            <select name="" id="" class="ui-control-select" data-active>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+        </select>
+            <span class="ui-control-icon"></span>
+        </div>
     </div>
 
     <h5>buttons</h5>
-    <div class="ui-control">
-        <button class="ui-control-button">Category</button>
-        <button class="ui-control-button">Score</button>
+    <div class="ui-control-block">
+        <div class="ui-control">
+            <button class="ui-control-button">Category</button>
+        </div>
+        <div class="ui-control">
+            <button class="ui-control-button">Score</button>
+        </div>
     </div>
 
     <h5>joined buttons</h5>
-    <div class="ui-control ui-control--joined">
-        <button class="ui-control-button">Category</button>
-        <button class="ui-control-button" data-active>Score</button>
-        <button class="ui-control-button">Bums</button>
+    <div class="ui-control-block" data-joined>
+        <div class="ui-control">
+            <button class="ui-control-button">Category</button>
+        </div>
+        <div class="ui-control">
+            <button class="ui-control-button" data-active>Category</button>
+        </div>
+        <div class="ui-control">
+            <button class="ui-control-button">Category</button>
+        </div>
     </div>
 
-    <h5>loose buttons</h5>
-    <div class="ui-control ui-control--loose">
-        <button class="ui-control-button">Category</button>
-        <button class="ui-control-button">Score</button>
-    </div>
 
     <h5>small</h5>
-    <div class="ui-control ui-control--small">
+    <div class="ui-control-block" data-small>
         <button class="ui-control-button">Category</button>
-        <button class="ui-control-button">Score</button>
     </div>
 
     <h5>big</h5>
-    <div class="ui-control ui-control--big">
+    <div class="ui-control-block" data-big>
         <button class="ui-control-button">Category</button>
-        <button class="ui-control-button">Score</button>
     </div>
+
     <h5>inputs</h5>
-    <div class="ui-control ui-control--stretch ui-control--fill">
+    <div class="ui-control-block">
         <input class="ui-control-input" value="">
-        <input class="ui-control-input" value="" disabled>
     </div>
 
     <h5>inputs with divider</h5>
-    <div class="ui-control">
-        <input class="ui-control-input" value="">
+    <div class="ui-control-block">
+        <div class="ui-control">
+            <input class="ui-control-input" value="">
+        </div>
         <div class="ui-control-divider">/</div>
-        <input class="ui-control-input" value="">
+        <div class="ui-control">
+            <input class="ui-control-input" value="">
+        </div>
     </div>
 
     <h5>search</h5>
-    <div class="ui-control">
-        <div class="ui-control-search" value="Category">
-            <input class="ui-control-input" placeholder="Search">
-            <button type="reset">clear</button>
-            <button type="submit">search</button>
+    <div class="ui-control-block">
+        <div class="ui-control" value="Category">
+            <input class="ui-control-search" placeholder="Search">
+            <span class="ui-control-icon"></span>
         </div>
+
     </div>
 
 </body>
