@@ -6,7 +6,6 @@
     gap: var(--spacing-xs) var(--spacing-s);
     width: fit-content;
     max-width: 100%;
-    font-size: var(--supporting-text);
     position: relative;
 }
 
@@ -23,6 +22,7 @@
     align-items: center;
     gap: var(--spacing-xs);
     line-height: 1;
+    font-size: var(--supporting-text);
 }
 
 .ui-control-icon {
@@ -93,10 +93,11 @@
     vertical-align: middle;
     transform: none;
     width: 1em;
-    height: 0.9em;
+    height: 1em;
     margin-right: 0.25em;
     margin-left: -0.2em;
     background-size: 85%;
+    margin-top: -2px
 }
 
 /* select box */
