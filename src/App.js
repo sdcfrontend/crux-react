@@ -9,8 +9,6 @@ import ComparisonPicker from './components/comparison-picker';
 import Metrics from './components/metrics';
 import Settings from './components/settings';
 
-import './css/index.css';
-
 function App() {
   const [pagesLoading, setPagesLoading] = useState(true);
   const [sites, setSites] = useState([]);

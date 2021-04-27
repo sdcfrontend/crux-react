@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import './fonts/sky-reg.woff';
+import './fonts/sky-med.woff';
+import './index.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
