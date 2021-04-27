@@ -2,7 +2,6 @@
     color: var(--text-color-invert);
     padding: var(--component-padding) 0;
     background: var(--shade-5);
-    margin-bottom: var(--group-margin);
 }
 
 .header h1 {
