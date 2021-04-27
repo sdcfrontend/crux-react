@@ -63,7 +63,7 @@
 }
 
 .ui-control-radio:is(input):checked {
-    background: radial-gradient(var(--link-color) 50%, white 50%);
+    background: radial-gradient(white 35%, var(--link-color) 35%);
 }
 
 /* checkbox */

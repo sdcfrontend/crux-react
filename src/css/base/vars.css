@@ -15,4 +15,8 @@
     --spacing-xl: calc(var(--spacing-base) * 6);
     --easing: cubic-bezier(0.165, 0.84, 0.44, 1);
     --border-radius: 5px;
+
+    --metric-good: hsl(118, 41%, 49%);
+    --metric-average:hsl(31, 78%, 53%);
+    --metric-bad: hsl(359, 80%, 50%);
 }
