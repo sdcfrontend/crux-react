@@ -1,7 +1,7 @@
 /* formatting container for ui elements */
-
 .ui-control-block {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: var(--spacing-s);
     width: fit-content;
@@ -12,7 +12,6 @@
 
 
 /* general ui element style */
-
 .ui-control {
     position: relative;
     width: fit-content;
@@ -47,14 +46,12 @@
 
 
 /* button */
-
 .ui-control-button {
     cursor: pointer;
 }
 
 
 /* select box */
-
 .ui-control-select:is(select) {
     padding-right: 2.5em;
 }
@@ -65,7 +62,6 @@
 
 
 /* active state */
-
 [class^=ui-control-][data-active]:is(select,
 input,
 button) {
@@ -79,7 +75,6 @@ button) {
 }
 
 /* disabled state */
-
 [class^=ui-control-][disabled]:is(select,
 input,
 button) {
@@ -87,9 +82,14 @@ button) {
     color: var(--text-color-tertiary);
 }
 
+[class^=ui-control-][disabled]:is(select,
+input,
+button) ~ .ui-control-icon {
+    opacity: 0.25;
+}
+
 
 /* search */
-
 .ui-control-search:is(input) {
     border-radius: 100px;
     width: 100%;
@@ -103,7 +103,6 @@ button) {
 
 
 /* control elements are joined */
-
 [class*='ui-control'][data-joined] {
     gap: 0;
 }
