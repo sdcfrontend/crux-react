@@ -69,8 +69,8 @@
 [class^=ui-control-][data-active]:is(select,
 input,
 button) {
-    background: var(--brand-1);
-    border-color: var(--brand-1);
+    background: var(--link-color);
+    border-color: var(--link-color);
     color: var(--text-color-invert);
 }
 
@@ -78,14 +78,13 @@ button) {
     filter: invert(1);
 }
 
-
 /* disabled state */
 
 [class^=ui-control-][disabled]:is(select,
 input,
 button) {
     background: var(--component-shade);
-    color: var(--supporting-text);
+    color: var(--text-color-tertiary);
 }
 
 
