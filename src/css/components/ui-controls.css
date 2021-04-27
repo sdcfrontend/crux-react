@@ -10,10 +10,19 @@
     position: relative;
 }
 
+.ui-control-block--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 /* general ui element style */
 .ui-control {
     position: relative;
     width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    line-height: 1;
 }
 
 .ui-control-icon {
@@ -43,12 +52,40 @@
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.01), 0 2px 0 rgba(0, 0, 0, 0.02);
 }
 
+/* radio button */
+.ui-control-radio:is(input) {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    padding: 0;
+    border: 2px solid var(--link-color);
+    gap: var(--spacing-xs);
+}
+
+.ui-control-radio:is(input):checked {
+    background: radial-gradient(var(--link-color) 50%, white 50%);
+}
+
+/* checkbox */
+.ui-control-checkbox:is(input) {
+    width: 1em;
+    height: 1em;
+    border-radius: var(--border-radius);
+    padding: 0;
+    border: 2px solid var(--link-color);
+    gap: var(--spacing-xs);
+}
+
+.ui-control-checkbox:is(input):checked {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z'/%3E%3C/svg%3E");
+    background-size: 95%;
+    background-color: var(--link-color);
+}
 
 /* button */
 .ui-control-button {
     cursor: pointer;
 }
-
 
 /* select box */
 .ui-control-select:is(select) {
@@ -61,9 +98,7 @@
 
 
 /* active state */
-[class^=ui-control-][data-active]:is(select,
-input,
-button) {
+[class^=ui-control-][data-active]:is(select,input,button) {
     background: var(--link-color);
     border-color: var(--link-color);
     color: var(--text-color-invert);
@@ -74,16 +109,12 @@ button) {
 }
 
 /* disabled state */
-[class^=ui-control-][disabled]:is(select,
-input,
-button) {
+[class^=ui-control-][disabled]:is(select,input,button) {
     background: var(--component-shade);
     color: var(--text-color-tertiary);
 }
 
-[class^=ui-control-][disabled]:is(select,
-input,
-button) ~ .ui-control-icon {
+[class^=ui-control-][disabled]:is(select,input,button) ~ .ui-control-icon {
     opacity: 0.25;
 }
 
@@ -106,23 +137,17 @@ button) ~ .ui-control-icon {
     gap: 0;
 }
 
-[class*='ui-control'][data-joined] :is(select,
-input,
-button) {
+[class*='ui-control'][data-joined] :is(select,input,button) {
     border-right-style: none;
     border-radius: 0;
 }
 
-[class*='ui-control'][data-joined]>:first-child> :is(select,
-input,
-button) {
+[class*='ui-control'][data-joined]>:first-child> :is(select,input,button) {
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
 }
 
-[class*='ui-control'][data-joined]>:last-child> :is(select,
-input,
-button) {
+[class*='ui-control'][data-joined]>:last-child> :is(select,input,button) {
     border-top-right-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
     border-right-style: solid;
