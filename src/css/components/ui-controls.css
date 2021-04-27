@@ -1,3 +1,4 @@
+/* formatting container for ui elements */
 .ui-control {
     display: flex;
     align-items: center;
@@ -8,6 +9,7 @@
     position: relative;
 }
 
+/* general ui element style */
 [class^=ui-control-]:is(select, input, button) {
     -webkit-appearance: none;
     appearance: none;
@@ -18,43 +20,77 @@
     font-weight: 400;
     padding: 0.5em 0.9em;
     border-radius: var(--border-radius);
-    cursor: pointer;
     line-height: 1;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.01);
 }
 
+/* button */
+.ui-control-button {
+    cursor: pointer;
+}
+
+/* select box */
+.ui-control-select:is(select) {
+    padding-right: 2.5em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10716.1 7753.5 22.3 12.3'%3E%3Cpath d='m-10716.1 7754.7c0 .2.1.4.2.5l.2.2 10.1 10.1c.2.2.4.3.7.3s.5-.1.7-.3l10.1-10.1.1-.1c.2-.2.2-.3.2-.5s-.2-.4-.4-.7c-.2-.2-.4-.4-.6-.5-.1 0-.1-.1-.1-.1l-.5.5-9.2 9.2-.4.4-.4-.4-9.2-9.2-.5-.5-.1.1c-.2.2-.4.3-.6.5-.1.2-.3.4-.3.6z'/%3E%3C/svg%3E") no-repeat right 0.75em center;
+    background-size: 0.65em auto;
+}
+
+/* active state */
+[class^=ui-control-][data-active]:is(select, input, button) {
+    background: var(--brand-1);
+    border-color: var(--brand-1);
+    color: var(--text-color-invert);
+}
+
+/* disabled state */
+[class^=ui-control-][disabled]:is(select, input, button) {
+    background: var(--component-shade);
+    color: var(--supporting-text);
+}
+
+/* search */
 .ui-control-search,
 .ui-control-search :is(input) {
     border-radius: 100px;
     width: 100%;
 }
 
+/* small control */
 .ui-control--small {
     font-size: var(--label-text)
 }
 
+/* big control */
 .ui-control--big {
     font-size: var(--font-scale-xs);
 }
 
-.ui-control--joined {
-    gap: 0;
-}
 
+/* control elements are tight */
 .ui-control--tight {
     gap: var(--spacing-xs);
 }
 
+/* control elements are loose */
 .ui-control--loose {
     gap: var(--spacing-m);
 }
 
+/* control parent fills entire available width */
 .ui-control--fill {
     width: 100%;
 }
 
+/* control elements fill available width */
 .ui-control--stretch> :is(select, input, button) {
     flex: 1;
     min-width: 0;
+}
+
+/* control elements are joined */
+.ui-control--joined {
+    gap: 0;
 }
 
 .ui-control--joined>:is(select, input, button) {
