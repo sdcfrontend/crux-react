@@ -3,13 +3,12 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--spacing-s);
+    gap: var(--spacing-xs) var(--spacing-s);
     width: fit-content;
     max-width: 100%;
     font-size: var(--supporting-text);
     position: relative;
 }
-
 
 /* general ui element style */
 .ui-control {
