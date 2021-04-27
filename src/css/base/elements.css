@@ -1,6 +1,6 @@
 html {
     font-family: 'Sky Text', sans-serif;
-    font-size: var(--base-font-size);
+    font-size: var(--component-text);
     color: var(--text-color);
 }
 
