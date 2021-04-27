@@ -1,15 +1,68 @@
 [
   {
-    "id": "1",
-    "name": "Sky Sports",
-    "pages": [
-      "https://www.skysports.com",
-      "https://www.skysports.com/football"
-    ]
+      "dateAdded": "2021-04-27T21:50:16.063Z",
+      "dateModified": "2021-04-27T21:50:16.063Z",
+      "pages": [
+          {
+              "dateAdded": "2021-04-27T21:50:16.080Z",
+              "dateModified": "2021-04-27T21:50:16.080Z",
+              "_id": "60888abbeec36917ee5cb9b2",
+              "name": "/",
+              "url": "https://news.sky.com/",
+              "__v": 0
+          },
+          {
+              "dateAdded": "2021-04-27T21:50:16.080Z",
+              "dateModified": "2021-04-27T21:50:16.080Z",
+              "_id": "60888ad5eec36917ee5cb9b3",
+              "name": "/watch-live",
+              "url": "https://news.sky.com/watch-live",
+              "__v": 0
+          },
+          {
+              "dateAdded": "2021-04-27T21:50:16.080Z",
+              "dateModified": "2021-04-27T21:50:16.080Z",
+              "_id": "60888aebeec36917ee5cb9b4",
+              "name": "/weather",
+              "url": "https://news.sky.com/weather",
+              "__v": 0
+          }
+      ],
+      "_id": "60888809eec36917ee5cb9aa",
+      "name": "Sky News",
+      "__v": 0
   },
   {
-    "id": "2",
-    "name": "Sky News",
-    "pages": ["https://news.sky.com"]
+      "dateAdded": "2021-04-27T21:50:16.063Z",
+      "dateModified": "2021-04-27T21:50:16.063Z",
+      "pages": [
+          {
+              "dateAdded": "2021-04-27T21:50:16.080Z",
+              "dateModified": "2021-04-27T21:50:16.080Z",
+              "_id": "60888a60eec36917ee5cb9ae",
+              "name": "/",
+              "url": "https://www.skysports.com/",
+              "__v": 0
+          },
+          {
+              "dateAdded": "2021-04-27T21:50:16.080Z",
+              "dateModified": "2021-04-27T21:50:16.080Z",
+              "_id": "60888a75eec36917ee5cb9af",
+              "name": "/football",
+              "url": "https://www.skysports.com/football",
+              "__v": 0
+          },
+          {
+              "dateAdded": "2021-04-27T21:50:16.080Z",
+              "dateModified": "2021-04-27T21:50:16.080Z",
+              "_id": "60888a7feec36917ee5cb9b0",
+              "name": "/transfer-centre",
+              "url": "https://www.skysports.com/transfer-centre",
+              "__v": 0
+          }
+      ],
+      "_id": "60888a2eeec36917ee5cb9ad",
+      "name": "Sky Sports",
+      "__v": 0
   }
 ]
