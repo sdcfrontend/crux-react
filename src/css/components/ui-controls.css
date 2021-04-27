@@ -30,7 +30,7 @@
     align-items: center;
     gap: var(--spacing-xs);
     line-height: 1;
-    font-size: var(--supporting-text);
+    font-size: calc(var(--component-text) - 2px);
 }
 
 .ui-control-icon {

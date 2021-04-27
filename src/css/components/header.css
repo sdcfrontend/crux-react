@@ -6,8 +6,8 @@
 }
 
 .header h1 {
-    font-size: var(--display-1);
+    font-size: var(--display-2);
     line-height: 1;
     margin-bottom: var(--component-gap);
-    font-weight: 500;
+    font-weight: bold;
 }
