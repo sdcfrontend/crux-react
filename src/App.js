@@ -93,10 +93,10 @@ function App() {
       <div className="flex-col gap-m mar-b-xl ui-panel">
       <div class="ui-control-block flex flex-h-end" data-joined>
           <div class="ui-control text-s">
-              <button class="ui-control-button">% in good</button>
+              <button class="ui-control-button" data-active>% in good category</button>
           </div>
           <div class="ui-control text-s">
-              <button class="ui-control-button" data-active>75 PC</button>
+              <button class="ui-control-button">Score at 75pc</button>
           </div>
       </div>
         <div class="ui-panel-divider pad-b-xl">
