@@ -15,7 +15,7 @@
               "dateAdded": "2021-04-27T21:50:16.080Z",
               "dateModified": "2021-04-27T21:50:16.080Z",
               "_id": "60888ad5eec36917ee5cb9b3",
-              "name": "/watch-live",
+              "name": "watch-live",
               "url": "https://news.sky.com/watch-live",
               "__v": 0
           },
@@ -23,7 +23,7 @@
               "dateAdded": "2021-04-27T21:50:16.080Z",
               "dateModified": "2021-04-27T21:50:16.080Z",
               "_id": "60888aebeec36917ee5cb9b4",
-              "name": "/weather",
+              "name": "weather",
               "url": "https://news.sky.com/weather",
               "__v": 0
           }
@@ -48,7 +48,7 @@
               "dateAdded": "2021-04-27T21:50:16.080Z",
               "dateModified": "2021-04-27T21:50:16.080Z",
               "_id": "60888a75eec36917ee5cb9af",
-              "name": "/football",
+              "name": "football",
               "url": "https://www.skysports.com/football",
               "__v": 0
           },
@@ -56,7 +56,7 @@
               "dateAdded": "2021-04-27T21:50:16.080Z",
               "dateModified": "2021-04-27T21:50:16.080Z",
               "_id": "60888a7feec36917ee5cb9b0",
-              "name": "/transfer-centre",
+              "name": "transfer-centre",
               "url": "https://www.skysports.com/transfer-centre",
               "__v": 0
           }

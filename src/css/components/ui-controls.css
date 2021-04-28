@@ -124,7 +124,7 @@
 
 /* active state */
 
-[class^=ui-control-][data-active]:is(select,
+[class^=ui-control-][data-active="true"]:is(select,
 input,
 button) {
     background: var(--link-color);
@@ -132,8 +132,8 @@ button) {
     color: var(--text-color-invert);
 }
 
-[class^=ui-control-][data-active]~.ui-control-icon,
-[class^=ui-control-][data-active] .ui-control-icon {
+[class^=ui-control-][data-active="true"]~.ui-control-icon,
+[class^=ui-control-][data-active="true"] .ui-control-icon {
     filter: invert(1);
 }
 
@@ -200,7 +200,7 @@ button) {
 
 /* tabs */
 
-[class*='ui-control'][data-tabs] [data-active]:after {
+[class*='ui-control'][data-tabs] [data-active="true"]:after {
     content: "";
     position: absolute;
     width: 0.7em;

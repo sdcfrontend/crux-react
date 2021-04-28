@@ -6,7 +6,7 @@ const Settings = ({ metrics, chosenMetrics, setChosenMetrics }) => {
   }
 
   return (
-    <div>
+    <div className="ui-panel">
       {metrics?.map((metric, i) => (
         <div key={i} className="flex">
           <input onChange={handleCheck} type="checkbox" value={metric.name} checked={`${chosenMetrics.includes(metric.name) ? 'checked': ''}`}/>

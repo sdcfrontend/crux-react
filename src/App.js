@@ -3,6 +3,7 @@ import { useMetrics } from './hooks/use-metrics';
 
 import defaults from './lib/defaults';
 
+import Header from './components/header';
 import PagePicker from './components/page-picker';
 import DevicePicker from './components/device-picker';
 import ComparisonPicker from './components/comparison-picker';
@@ -41,7 +42,7 @@ function App() {
     const loadSites = async () => {
       setPagesLoading(true);
 
-      const response = await fetch('./data/sites.json');
+      const response = await fetch('http://localhost:4000/sites');
       const data = await response.json();
 
       setPagesLoading(false);
@@ -63,40 +64,34 @@ function App() {
   }, []);
 
   return (
+    <>
+    <Header
+      sites={sites}
+      currentSite={currentSite}
+      setCurrentSite={setCurrentSite}
+      pages={pages}
+      setPages={setPages}
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+      requestBody={requestBody}
+      setRequestBody={setRequestBody}
+      currentDevice={currentDevice}
+      setCurrentDevice={setCurrentDevice}
+    />
     <div className="pad-m">
+      
       <div className="flex-col gap-l wrap">
         <h1>{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h1>
 
         <div className="flex gap-l">
           <div className="flex-col gap-l">
-            <div className="flex-col gap-m">
-              <div className="flex gap-s">
-                <PagePicker
-                  sites={sites}
-                  currentSite={currentSite}
-                  setCurrentSite={setCurrentSite}
-                  pages={pages}
-                  setPages={setPages}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  requestBody={requestBody}
-                  setRequestBody={setRequestBody}
-                />
-                <ComparisonPicker
-                  isComparing={isComparing}
-                  setIsComparing={setIsComparing}
-                  setComparisonMetrics={setComparisonMetrics}
-                  setComparisonMetricsLoading={setComparisonMetricsLoading}
-                  currentDevice={currentDevice}
-                />
-              </div>
-              <DevicePicker
-                currentDevice={currentDevice}
-                setCurrentDevice={setCurrentDevice}
-                requestBody={requestBody}
-                setRequestBody={setRequestBody}
-              />
-            </div>
+            <ComparisonPicker
+              isComparing={isComparing}
+              setIsComparing={setIsComparing}
+              setComparisonMetrics={setComparisonMetrics}
+              setComparisonMetricsLoading={setComparisonMetricsLoading}
+              currentDevice={currentDevice}
+            />
             <div className="flex gap-s">
               <Metrics
                 name={currentSite?.name}
@@ -123,6 +118,7 @@ function App() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

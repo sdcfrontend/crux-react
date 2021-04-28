@@ -29,6 +29,9 @@ const Picker = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPa
         currentValue={currentSite?.id}
         handler={handleSiteChange}
       />
+
+      <div className="ui-control-divider">/</div>
+
       <Select
         options={pages}
         label="name"
