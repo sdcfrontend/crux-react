@@ -9,6 +9,7 @@ import DevicePicker from './components/device-picker';
 import ComparisonPicker from './components/comparison-picker';
 import Metrics from './components/metrics';
 import Settings from './components/settings';
+import Groaky from './components/groaky';
 
 function App() {
   const [pagesLoading, setPagesLoading] = useState(true);
@@ -80,58 +81,60 @@ function App() {
       setCurrentDevice={setCurrentDevice}
     />
 
-    <div class="ui-control-block mar-b-s gap-xs wrap" data-tabs>
-        <div class="ui-control">
-            <button class="ui-control-button display-5" data-active>Targets</button>
+    <Groaky/>
+
+    <div className="ui-control-block mar-b-s gap-xs wrap" data-tabs>
+        <div className="ui-control">
+            <button className="ui-control-button display-5" data-active>Targets</button>
         </div>
-        <div class="ui-control">
-            <button class="ui-control-button display-5">Compare</button>
+        <div className="ui-control">
+            <button className="ui-control-button display-5">Compare</button>
         </div>
     </div>
 
-    <div class="wrap">
+    <div className="wrap">
       <div className="flex-col gap-m mar-b-xl ui-panel">
-      <div class="ui-control-block flex flex-h-end" data-joined>
-          <div class="ui-control text-s">
-              <button class="ui-control-button" data-active>% in good category</button>
+      <div className="ui-control-block flex flex-h-end" data-joined>
+          <div className="ui-control text-s">
+              <button className="ui-control-button" data-active>% in good category</button>
           </div>
-          <div class="ui-control text-s">
-              <button class="ui-control-button">Score at 75pc</button>
+          <div className="ui-control text-s">
+              <button className="ui-control-button">Score at 75pc</button>
           </div>
       </div>
-        <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-xs">Largest Contenful Paint</h2>
-          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
-          <div class="flex gap-m">
-            <div class="flex-grow">GRAPH</div>
-            <div class="">
-              <div class="ui-badge">
-                  <div class="ui-badge-result" data-bad>
-                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
-                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
-                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+        <div className="ui-panel-divider pad-b-xl">
+          <h2 className="display-3 mar-b-xs">Largest Contenful Paint</h2>
+          <div className="text-supporting text-em mar-b-l">Lower scores best</div>
+          <div className="flex gap-m">
+            <div className="flex-grow">GRAPH</div>
+            <div className="">
+              <div className="ui-badge">
+                  <div className="ui-badge-result" data-bad>
+                    <svg viewBox="0 0 120 120" className="ui-badge-circle">
+                      <circle className="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle className="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
                     </svg>
                     <span>84%</span>
                   </div>
-                  <div class="ui-control">
-                    <button class="ui-control-button text-s">Diagnose</button>
+                  <div className="ui-control">
+                    <button className="ui-control-button text-s">Diagnose</button>
                   </div>
               </div>
             </div>
           </div>
         </div>  
 
-        <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-xs">First Input Delay</h2>
-          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
-          <div class="flex gap-m">
-            <div class="flex-grow">GRAPH</div>
-            <div class="">
-              <div class="ui-badge">
-                <div class="ui-badge-result" data-good>
-                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
-                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
-                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+        <div className="ui-panel-divider pad-b-xl">
+          <h2 className="display-3 mar-b-xs">First Input Delay</h2>
+          <div className="text-supporting text-em mar-b-l">Lower scores best</div>
+          <div className="flex gap-m">
+            <div className="flex-grow">GRAPH</div>
+            <div className="">
+              <div className="ui-badge">
+                <div className="ui-badge-result" data-good>
+                    <svg viewBox="0 0 120 120" className="ui-badge-circle">
+                      <circle className="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle className="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
                     </svg>
                     <span>84%</span>
                   </div>
@@ -140,17 +143,17 @@ function App() {
           </div>
         </div>  
 
-        <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-xs">Cumulative Layout Shift</h2>
-          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
-          <div class="flex gap-m">
-            <div class="flex-grow">GRAPH</div>
-            <div class="">
-            <div class="ui-badge">
-                <div class="ui-badge-result" data-average>
-                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
-                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
-                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+        <div className="ui-panel-divider pad-b-xl">
+          <h2 className="display-3 mar-b-xs">Cumulative Layout Shift</h2>
+          <div className="text-supporting text-em mar-b-l">Lower scores best</div>
+          <div className="flex gap-m">
+            <div className="flex-grow">GRAPH</div>
+            <div className="">
+            <div className="ui-badge">
+                <div className="ui-badge-result" data-average>
+                    <svg viewBox="0 0 120 120" className="ui-badge-circle">
+                      <circle className="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle className="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
                     </svg>
                     <span>84%</span>
                   </div>
@@ -159,7 +162,7 @@ function App() {
           </div>
         </div>  
       
-      <h2 class="display-2">{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h2>
+      <h2 className="display-2">{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h2>
 
       <div className="flex gap-l flex-v-start">
         <div className="flex-col gap-l flex-grow">
