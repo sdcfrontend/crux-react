@@ -102,19 +102,49 @@ function App() {
         <div class="ui-panel-divider pad-b-xl">
           <h2 class="display-3 mar-b-xs">Largest Contenful Paint</h2>
           <div class="text-supporting text-em mar-b-l">Lower scores best</div>
-          <p>Some stuff here</p>
+          <div class="flex gap-m">
+            <div class="flex-grow">GRAPH</div>
+            <div class="">
+              <div class="ui-badge">
+                  <div class="ui-badge-result" data-bad>
+                      85%
+                  </div>
+                  <div class="ui-control">
+                    <button class="ui-control-button text-s">Diagnose</button>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>  
 
         <div class="ui-panel-divider pad-b-xl">
           <h2 class="display-3 mar-b-xs">First Input Delay</h2>
           <div class="text-supporting text-em mar-b-l">Lower scores best</div>
-          <p>Some stuff here</p>
+          <div class="flex gap-m">
+            <div class="flex-grow">GRAPH</div>
+            <div class="">
+              <div class="ui-badge">
+                  <div class="ui-badge-result" data-good>
+                      85%
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>  
 
         <div class="ui-panel-divider pad-b-xl">
           <h2 class="display-3 mar-b-xs">Cumulative Layout Shift</h2>
           <div class="text-supporting text-em mar-b-l">Lower scores best</div>
-          <p>Some stuff here</p>
+          <div class="flex gap-m">
+            <div class="flex-grow">GRAPH</div>
+            <div class="">
+              <div class="ui-badge">
+                  <div class="ui-badge-result" data-average>
+                      85%
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>  
       
       <h2 class="display-2">{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h2>

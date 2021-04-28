@@ -1,6 +1,6 @@
 .header {
-  color: var(--text-color-invert);
-  padding: var(--component-padding) 0;
-  background: var(--shade-5);
-  box-shadow: var(--drop-shadow);
+    color: var(--text-color-invert);
+    padding: var(--component-padding) 0;
+    background: var(--shade-5);
+    box-shadow: var(--drop-shadow);
 }

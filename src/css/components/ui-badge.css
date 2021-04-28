@@ -1,36 +1,37 @@
 .ui-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: fit-content;
-  gap: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: var(--space-xs);
+    width: calc(var(--space-xl) * 2.3);
 }
 
 .ui-badge-result {
-  width: max(56px, calc(12px + var(--space-xl)));
-  height: max(56px, calc(12px + var(--space-xl)));
-  font-size: var(--display-4);
-  background: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  border-radius: 50%;
-  font-weight: 500;
-  border: 2px solid rgba(0,0,0,0.08);
+    width: max(56px, calc(var(--space-xl) * 1.5));
+    height: max(56px, calc(var(--space-xl) * 1.5));
+    font-size: var(--display-4);
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border-radius: 50%;
+    font-weight: 500;
+    border: 2px solid rgba(0, 0, 0, 0.08);
 }
 
 .ui-badge-result[data-good] {
-  background: var(--metric-good);
-  color: white;
+    background: var(--metric-good);
+    color: white;
 }
 
 .ui-badge-result[data-average] {
-  background: var(--metric-average);
-  color: white;
+    background: var(--metric-average);
+    color: white;
 }
 
 .ui-badge-result[data-bad] {
-  background: var(--metric-bad);
-  color: white;
+    background: var(--metric-bad);
+    color: white;
 }

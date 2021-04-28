@@ -1,12 +1,16 @@
 .ui-panel {
-  width: 100%;
-  background: var(--component-bg);
-  border: 1px solid var(--border-color);
-  padding: var(--component-padding);
-  box-shadow: var(--drop-shadow);
-  border-radius: var(--border-radius);
+    width: 100%;
+    background: var(--component-bg);
+    border: 1px solid var(--border-color);
+    padding: var(--component-padding);
+    box-shadow: var(--drop-shadow);
+    border-radius: var(--border-radius);
 }
 
 .ui-panel-divider {
-  border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ui-panel-sidebar {
+    display: flex;
 }
