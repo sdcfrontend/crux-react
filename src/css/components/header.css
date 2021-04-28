@@ -1,12 +1,6 @@
 .header {
-    color: var(--text-color-invert);
-    padding: var(--component-padding) 0;
-    background: var(--shade-5);
-}
-
-.header h1 {
-    font-size: var(--display-2);
-    line-height: 1;
-    margin-bottom: var(--component-gap);
-    font-weight: bold;
+  color: var(--text-color-invert);
+  padding: var(--component-padding) 0;
+  background: var(--shade-5);
+  box-shadow: var(--drop-shadow);
 }

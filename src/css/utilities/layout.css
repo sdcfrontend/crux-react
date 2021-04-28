@@ -1,18 +1,18 @@
-.wrap {
-    width: min(100%, var(--max-site-width));
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--component-padding);
-    padding-right: var(--component-padding);
+.wrap[class] {
+  width: min(100%, var(--max-site-width));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--component-padding);
+  padding-right: var(--component-padding);
 }
 
 .flex,
 .flex-col {
-    display: flex;
+  display: flex;
 }
 
 .flex-col {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .flex.flex-v-center,
