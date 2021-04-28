@@ -92,10 +92,10 @@ function App() {
     <div class="wrap">
       <div className="flex-col gap-m mar-b-xl ui-panel">
       <div class="ui-control-block flex flex-h-end" data-joined>
-          <div class="ui-control text-small">
+          <div class="ui-control text-s">
               <button class="ui-control-button">% in good</button>
           </div>
-          <div class="ui-control text-small">
+          <div class="ui-control text-s">
               <button class="ui-control-button" data-active>75 PC</button>
           </div>
       </div>

@@ -32,6 +32,10 @@
   font-size: var(--component-text);
 }
 
-.text-small {
+.text-s[class] {
   font-size: 14px;
+}
+
+.text-xs[class] {
+  font-size: 12px;
 }

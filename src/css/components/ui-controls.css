@@ -121,6 +121,7 @@ button) {
   background: var(--link-color);
   border-color: var(--link-color);
   color: var(--text-color-invert);
+  font-weight: 600;
 }
 
 [class^=ui-control-][data-active="true"]~.ui-control-icon,
@@ -194,6 +195,7 @@ button) {
   top: calc(100% - 0.37em);
   left: calc(50% - 0.35em);
   transform: rotate(-45deg);
+  box-shadow: inherit;
 }
 
 .ui-icon--down {
