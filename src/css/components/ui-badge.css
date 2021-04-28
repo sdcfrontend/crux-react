@@ -4,13 +4,12 @@
     align-items: center;
     width: fit-content;
     gap: var(--space-xs);
-    width: calc(var(--space-xl) * 2.3);
+    width: clamp(74px, 20vw, 140px);
 }
 
 .ui-badge-result {
-    width: max(56px, calc(var(--space-xl) * 1.5));
-    height: max(56px, calc(var(--space-xl) * 1.5));
-    font-size: var(--display-4);
+    width: 75%;
+    font-size: clamp(10px, 6vw, 34px);
     background: #eee;
     display: flex;
     align-items: center;
@@ -19,6 +18,12 @@
     border-radius: 50%;
     font-weight: 500;
     border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.ui-badge-result:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
 }
 
 .ui-badge-result[data-good] {
