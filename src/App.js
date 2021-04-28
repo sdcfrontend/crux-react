@@ -79,44 +79,41 @@ function App() {
       currentDevice={currentDevice}
       setCurrentDevice={setCurrentDevice}
     />
-    <div className="pad-m">
-      
-      <div className="flex-col gap-l wrap">
-        <h1>{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h1>
+    <div className="flex-col gap-l wrap">
+      <h1>{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h1>
 
-        <div className="flex gap-l">
-          <div className="flex-col gap-l">
-            <ComparisonPicker
-              isComparing={isComparing}
-              setIsComparing={setIsComparing}
-              setComparisonMetrics={setComparisonMetrics}
-              setComparisonMetricsLoading={setComparisonMetricsLoading}
-              currentDevice={currentDevice}
-            />
-            <div className="flex gap-s">
-              <Metrics
-                name={currentSite?.name}
-                metrics={metrics}
-                chosenMetrics={chosenMetrics}
-                metricsLoading={metricsLoading}
-              />
-              {isComparing &&
-                <Metrics
-                  name="Comparison"
-                  metrics={comparisonMetrics}
-                  chosenMetrics={chosenMetrics}
-                  metricsLoading={comparisonMetricsLoading}
-                />
-              }
-            </div>
-          </div>
-
-          <Settings
-            metrics={metrics}
-            chosenMetrics={chosenMetrics}
-            setChosenMetrics={setChosenMetrics}
+      <div className="flex gap-l flex-v-start">
+        <div className="flex-col gap-l flex-grow">
+          <ComparisonPicker
+            isComparing={isComparing}
+            setIsComparing={setIsComparing}
+            setComparisonMetrics={setComparisonMetrics}
+            setComparisonMetricsLoading={setComparisonMetricsLoading}
+            currentDevice={currentDevice}
           />
+          <div className="flex gap-s">
+            <Metrics
+              name={currentSite?.name}
+              metrics={metrics}
+              chosenMetrics={chosenMetrics}
+              metricsLoading={metricsLoading}
+            />
+            {isComparing &&
+              <Metrics
+                name="Comparison"
+                metrics={comparisonMetrics}
+                chosenMetrics={chosenMetrics}
+                metricsLoading={comparisonMetricsLoading}
+              />
+            }
+          </div>
         </div>
+        
+        <Settings
+          metrics={metrics}
+          chosenMetrics={chosenMetrics}
+          setChosenMetrics={setChosenMetrics}
+        />
       </div>
     </div>
     </>

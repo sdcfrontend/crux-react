@@ -4,5 +4,4 @@
     padding: var(--component-padding);
     box-shadow: var(--drop-shadow);
     border-radius: var(--border-radius);
-    align-self: flex-start;
 }

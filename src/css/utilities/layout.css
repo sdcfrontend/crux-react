@@ -2,9 +2,6 @@
     width: min(100%, var(--max-site-width));
     margin-left: auto;
     margin-right: auto;
-}
-
-.wrap-padding {
     padding-left: var(--component-padding);
     padding-right: var(--component-padding);
 }
@@ -16,4 +13,38 @@
 
 .flex-col {
     flex-direction: column;
+}
+
+.flex.flex-v-center,
+.flex-col.flex-h-center {
+  align-items: center;
+}
+
+.flex-col.flex-v-center,
+.flex.flex-h-center {
+  justify-content: center;
+}
+
+.flex.flex-v-start,
+.flex-col.flex-h-start {
+  align-items: flex-start;
+}
+
+.flex-col.flex-v-start,
+.flex.flex-h-start {
+  justify-content: flex-start;
+}
+
+.flex.flex-v-end,
+.flex-col.flex-h-end {
+  align-items: flex-end;
+}
+
+.flex-col.flex-v-end,
+.flex.flex-h-end {
+  justify-content: flex-end;
+}
+
+.flex-grow {
+  flex: 1;
 }
