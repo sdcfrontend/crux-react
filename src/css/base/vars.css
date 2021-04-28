@@ -1,18 +1,5 @@
 :root {
     --max-site-width: 1200px;
-    --font-xs: 0.9rem;
-    --font-s: 1rem;
-    --font-m: 1.2rem;
-    --font-l: 1.5rem;
-    --font-xl: 2rem;
-    --font-xxl: 2.5rem;
-    --heading-mulitplier: 2;
-    --spacing-base: var(--font-s);
-    --spacing-xs: calc(var(--spacing-base) / 2);
-    --spacing-s: var(--spacing-base);
-    --spacing-m: calc(var(--spacing-base) * 2);
-    --spacing-l: calc(var(--spacing-base) * 4);
-    --spacing-xl: calc(var(--spacing-base) * 6);
     --easing: cubic-bezier(0.165, 0.84, 0.44, 1);
     --border-radius: 5px;
     --drop-shadow: 0 2px 1px rgba(0, 0, 0, 0.025);

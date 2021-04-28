@@ -80,7 +80,7 @@ function App() {
       setCurrentDevice={setCurrentDevice}
     />
     <div className="flex-col gap-l wrap">
-      <h1>{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h1>
+      <h2 class="display-2">{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h2>
 
       <div className="flex gap-l flex-v-start">
         <div className="flex-col gap-l flex-grow">

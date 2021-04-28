@@ -3,9 +3,9 @@ import DevicePicker from './device-picker';
 
 const Header = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPage, setCurrentPage, requestBody, setRequestBody, currentDevice, setCurrentDevice }) => {
   return (
-    <div className="header mar-b-l pad-v-l">
+    <div className="header mar-b-l pad-v-m">
       <div className="wrap">
-          <h1>Performance Dashboard</h1>
+          <h1 class="display-1">Performance Dashboard</h1>
           <div className="ui-control-block">
             <PagePicker
               sites={sites}

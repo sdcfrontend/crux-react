@@ -6,7 +6,7 @@ const Metrics = ({ name, metrics, chosenMetrics, metricsLoading }) => {
 
   return (
     <div className="flex-col gap-s">
-      <h2>{name}</h2>
+      <h2 class="display-2">{name}</h2>
       <div className="flex-col gap-s">
         {metricsLoading
           ? <p>Loading...</p>

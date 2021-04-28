@@ -1,0 +1,29 @@
+.display-1 {
+  font-size: var(--display-1);
+  line-height: 1;
+}
+
+.display-2 {
+  font-size: var(--display-2);
+  line-height: 1.1;
+}
+
+.display-3 {
+  font-size: var(--display-3);
+  line-height: 1.1;
+}
+
+.display-4 {
+  font-size: var(--display-4);
+  line-height: 1.2;
+}
+
+.display-5 {
+  font-size: var(--display-5);
+  line-height: 1.2;
+}
+
+.display-6 {
+  font-size: var(--display-6);
+  line-height: 1.3;
+}
