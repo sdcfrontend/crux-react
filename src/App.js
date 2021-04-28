@@ -88,9 +88,17 @@ function App() {
             <button class="ui-control-button">Compare</button>
         </div>
     </div>
+
     <div class="wrap">
       <div className="flex-col gap-m mar-b-xl ui-panel">
-
+      <div class="ui-control-block flex flex-h-end" data-joined>
+          <div class="ui-control text-small">
+              <button class="ui-control-button">% in good</button>
+          </div>
+          <div class="ui-control text-small">
+              <button class="ui-control-button" data-active>75 PC</button>
+          </div>
+      </div>
         <div class="ui-panel-divider pad-b-xl">
           <h2 class="display-3 mar-b-s">Largest Contenful Paint</h2>
           <p>Some stuff here</p>
