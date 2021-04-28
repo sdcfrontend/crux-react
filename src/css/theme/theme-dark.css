@@ -1,3 +1,4 @@
 .theme-dark {
-  --link-color: var(--link-color-dark);
+    --link-color: var(--link-color-dark);
+    --text-color-secondary: var(--shade-2);
 }

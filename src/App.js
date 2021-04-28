@@ -93,25 +93,70 @@ function App() {
       <div className="flex-col gap-m mar-b-xl ui-panel">
       <div class="ui-control-block flex flex-h-end" data-joined>
           <div class="ui-control text-s">
-              <button class="ui-control-button">% in good</button>
+              <button class="ui-control-button" data-active>% in good category</button>
           </div>
           <div class="ui-control text-s">
-              <button class="ui-control-button" data-active>75 PC</button>
+              <button class="ui-control-button">Score at 75pc</button>
           </div>
       </div>
         <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-s">Largest Contenful Paint</h2>
-          <p>Some stuff here</p>
+          <h2 class="display-3 mar-b-xs">Largest Contenful Paint</h2>
+          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
+          <div class="flex gap-m">
+            <div class="flex-grow">GRAPH</div>
+            <div class="">
+              <div class="ui-badge">
+                  <div class="ui-badge-result" data-bad>
+                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
+                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+                    </svg>
+                    <span>84%</span>
+                  </div>
+                  <div class="ui-control">
+                    <button class="ui-control-button text-s">Diagnose</button>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>  
 
         <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-s">First Input Delay</h2>
-          <p>Some stuff here</p>
+          <h2 class="display-3 mar-b-xs">First Input Delay</h2>
+          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
+          <div class="flex gap-m">
+            <div class="flex-grow">GRAPH</div>
+            <div class="">
+              <div class="ui-badge">
+                <div class="ui-badge-result" data-good>
+                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
+                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+                    </svg>
+                    <span>84%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>  
 
         <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-s">Cumulative Layout Shift</h2>
-          <p>Some stuff here</p>
+          <h2 class="display-3 mar-b-xs">Cumulative Layout Shift</h2>
+          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
+          <div class="flex gap-m">
+            <div class="flex-grow">GRAPH</div>
+            <div class="">
+            <div class="ui-badge">
+                <div class="ui-badge-result" data-average>
+                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
+                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+                    </svg>
+                    <span>84%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>  
       
       <h2 class="display-2">{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h2>

@@ -1,36 +1,63 @@
 .ui-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: fit-content;
-  gap: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: var(--space-xs);
+    width: clamp(74px, 20vw, 130px);
 }
 
 .ui-badge-result {
-  width: max(56px, calc(12px + var(--space-xl)));
-  height: max(56px, calc(12px + var(--space-xl)));
-  font-size: var(--display-4);
-  background: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  border-radius: 50%;
-  font-weight: 500;
-  border: 2px solid rgba(0,0,0,0.08);
+    position: relative;
+    width: 75%;
+    --score: 75;
+}
+
+.ui-badge-result:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.ui-badge-circle,
+.ui-badge-result span {
+    position: absolute;
+    inset: 0;
+    fill: white;
+    stroke-linecap: round;
+    font-size: clamp(10px, 5vw, 32px);
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-badge-circle-bg {
+    stroke: inherit;
+    stroke-width: 8;
+    opacity: 0.1;
+}
+
+.ui-badge-circle-line {
+    stroke-width: 8;
+    stroke: inherit;
+    stroke-dasharray: calc((360 / 100) * var(--score)), 350;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    fill: none;
 }
 
 .ui-badge-result[data-good] {
-  background: var(--metric-good);
-  color: white;
+    stroke: var(--metric-good);
+    color: var(--metric-good);
 }
 
 .ui-badge-result[data-average] {
-  background: var(--metric-average);
-  color: white;
+    stroke: var(--metric-average);
+    color: var(--metric-average);
 }
 
 .ui-badge-result[data-bad] {
-  background: var(--metric-bad);
-  color: white;
+    stroke: var(--metric-bad);
+    color: var(--metric-bad);
 }
