@@ -6,4 +6,5 @@
     --metric-good: hsl(118, 41%, 49%);
     --metric-average: hsl(31, 78%, 53%);
     --metric-bad: hsl(359, 80%, 50%);
+    --link-color-dark: #2AA2E1;
 }

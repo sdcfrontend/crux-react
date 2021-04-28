@@ -82,10 +82,10 @@ function App() {
 
     <div class="ui-control-block mar-b-s gap-xs wrap" data-tabs>
         <div class="ui-control">
-            <button class="ui-control-button" data-active>Targets</button>
+            <button class="ui-control-button display-5" data-active>Targets</button>
         </div>
         <div class="ui-control">
-            <button class="ui-control-button">Compare</button>
+            <button class="ui-control-button display-5">Compare</button>
         </div>
     </div>
 

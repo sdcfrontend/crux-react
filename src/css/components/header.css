@@ -3,4 +3,5 @@
   padding: var(--component-padding) 0;
   background: var(--shade-5);
   box-shadow: var(--drop-shadow);
+  --link-color: var(--link-color-dark);
 }
