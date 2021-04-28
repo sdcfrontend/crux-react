@@ -48,3 +48,10 @@
     color: var(--text-color-secondary);
     font-size: var(--font-fixed-xs);
 }
+
+.text-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-color-secondary);
+    font-weight: bold;
+}

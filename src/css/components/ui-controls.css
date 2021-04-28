@@ -32,13 +32,6 @@
     font-size: calc(var(--component-text) - 1px);
 }
 
-.ui-control-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    color: var(--text-color-secondary);
-    font-weight: bold;
-}
-
 .ui-control-icon {
     position: absolute;
     width: 2em;

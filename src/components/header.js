@@ -6,28 +6,28 @@ const Header = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPa
     <div className="header theme-dark mar-b-xl pad-v-l">
       <div className="wrap">
 
-          <h1 class="display-1 mar-b-s">Performance Dashboard</h1>
-          <p class="ui-control-label mar-b-xs">Select a url:</p>
-          <div className="ui-control-block">
-            <PagePicker
-              sites={sites}
-              currentSite={currentSite}
-              setCurrentSite={setCurrentSite}
-              pages={pages}
-              setPages={setPages}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              requestBody={requestBody}
-              setRequestBody={setRequestBody}
-            />
+        <h1 class="display-1 mar-b-s">Performance Dashboard</h1>
+        <p class="text-label mar-b-xs">Select a url:</p>
+        <div className="ui-control-block">
+          <PagePicker
+            sites={sites}
+            currentSite={currentSite}
+            setCurrentSite={setCurrentSite}
+            pages={pages}
+            setPages={setPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            requestBody={requestBody}
+            setRequestBody={setRequestBody}
+          />
 
-            <DevicePicker
-              currentDevice={currentDevice}
-              setCurrentDevice={setCurrentDevice}
-              requestBody={requestBody}
-              setRequestBody={setRequestBody}
-            />
-          </div>
+          <DevicePicker
+            currentDevice={currentDevice}
+            setCurrentDevice={setCurrentDevice}
+            requestBody={requestBody}
+            setRequestBody={setRequestBody}
+          />
+        </div>
       </div>
     </div>
   );
