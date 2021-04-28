@@ -89,7 +89,7 @@ function App() {
         </div>
     </div>
     <div class="wrap">
-      <div className="flex-col gap-m ui-panel">
+      <div className="flex-col gap-m mar-b-xl ui-panel">
 
         <div class="ui-panel-divider pad-b-xl">
           <h2 class="display-3 mar-b-s">Largest Contenful Paint</h2>
