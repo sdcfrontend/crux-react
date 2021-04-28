@@ -107,7 +107,11 @@ function App() {
             <div class="">
               <div class="ui-badge">
                   <div class="ui-badge-result" data-bad>
-                      85%
+                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
+                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+                    </svg>
+                    <span>84%</span>
                   </div>
                   <div class="ui-control">
                     <button class="ui-control-button text-s">Diagnose</button>
@@ -124,8 +128,12 @@ function App() {
             <div class="flex-grow">GRAPH</div>
             <div class="">
               <div class="ui-badge">
-                  <div class="ui-badge-result" data-good>
-                      85%
+                <div class="ui-badge-result" data-good>
+                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
+                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+                    </svg>
+                    <span>84%</span>
                   </div>
               </div>
             </div>
@@ -138,9 +146,13 @@ function App() {
           <div class="flex gap-m">
             <div class="flex-grow">GRAPH</div>
             <div class="">
-              <div class="ui-badge">
-                  <div class="ui-badge-result" data-average>
-                      85%
+            <div class="ui-badge">
+                <div class="ui-badge-result" data-average>
+                    <svg viewBox="0 0 120 120" class="ui-badge-circle">
+                      <circle class="ui-badge-circle-bg" r="56" cx="60" cy="60"></circle>
+                      <circle class="ui-badge-circle-line" r="56" cx="60" cy="60"></circle>
+                    </svg>
+                    <span>84%</span>
                   </div>
               </div>
             </div>
