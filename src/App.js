@@ -100,17 +100,20 @@ function App() {
           </div>
       </div>
         <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-s">Largest Contenful Paint</h2>
+          <h2 class="display-3 mar-b-xs">Largest Contenful Paint</h2>
+          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
           <p>Some stuff here</p>
         </div>  
 
         <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-s">First Input Delay</h2>
+          <h2 class="display-3 mar-b-xs">First Input Delay</h2>
+          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
           <p>Some stuff here</p>
         </div>  
 
         <div class="ui-panel-divider pad-b-xl">
-          <h2 class="display-3 mar-b-s">Cumulative Layout Shift</h2>
+          <h2 class="display-3 mar-b-xs">Cumulative Layout Shift</h2>
+          <div class="text-supporting text-em mar-b-l">Lower scores best</div>
           <p>Some stuff here</p>
         </div>  
       

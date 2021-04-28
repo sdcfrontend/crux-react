@@ -83,6 +83,10 @@
 
 /* Margin Bottom */
 
+.mar-b-xs {
+  margin-bottom: var(--space-xs);
+}
+
 .mar-b-s {
   margin-bottom: var(--space-s);
 }

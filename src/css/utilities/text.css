@@ -39,3 +39,12 @@
 .text-xs[class] {
   font-size: 12px;
 }
+
+.text-em[class] {
+  font-style: italic;
+}
+
+.text-supporting {
+  color: var(--text-color-secondary);
+  font-size: var(--font-fixed-xs);
+}
