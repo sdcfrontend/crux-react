@@ -5,7 +5,9 @@ const Header = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPa
   return (
     <div className="header theme-dark mar-b-xl pad-v-l">
       <div className="wrap">
-          <h1 class="display-2 mar-b-s">Performance Dashboard</h1>
+
+          <h1 class="display-1 mar-b-s">Performance Dashboard</h1>
+          <p class="ui-control-label mar-b-xs">Select a url:</p>
           <div className="ui-control-block">
             <PagePicker
               sites={sites}
