@@ -79,7 +79,17 @@ function App() {
       currentDevice={currentDevice}
       setCurrentDevice={setCurrentDevice}
     />
-    <div className="flex-col gap-l wrap">
+
+    <div class="ui-control-block mar-b-m gap-xs wrap" data-tabs>
+        <div class="ui-control">
+            <button class="ui-control-button" data-active>Targets</button>
+        </div>
+        <div class="ui-control">
+            <button class="ui-control-button">Compare</button>
+        </div>
+    </div>
+    <div class="wrap">
+      <div className="flex-col gap-m ui-panel">
       <h2 class="display-2">{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h2>
 
       <div className="flex gap-l flex-v-start">
@@ -115,6 +125,7 @@ function App() {
           setChosenMetrics={setChosenMetrics}
         />
       </div>
+    </div>
     </div>
     </>
   );

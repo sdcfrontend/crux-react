@@ -1,5 +1,4 @@
 /* formatting container for ui elements */
-
 .ui-control-block {
     display: flex;
     flex-wrap: wrap;
@@ -22,7 +21,6 @@
 
 
 /* general ui element style */
-
 .ui-control {
     position: relative;
     width: fit-content;
@@ -62,7 +60,6 @@
 
 
 /* radio button */
-
 .ui-control-radio:is(input) {
     width: 1em;
     height: 1em;
@@ -78,7 +75,6 @@
 
 
 /* checkbox */
-
 .ui-control-checkbox:is(input) {
     width: 1em;
     height: 1em;
@@ -96,7 +92,6 @@
 
 
 /* button */
-
 .ui-control-button {
     cursor: pointer;
 }
@@ -116,14 +111,12 @@
 
 
 /* select box */
-
 .ui-control-select:is(select) {
     padding-right: 2.25em;
 }
 
 
 /* active state */
-
 [class^=ui-control-][data-active="true"]:is(select,
 input,
 button) {
@@ -139,7 +132,6 @@ button) {
 
 
 /* disabled state */
-
 [class^=ui-control-][disabled]:is(select,
 input,
 button) {
@@ -155,7 +147,6 @@ button)~.ui-control-icon {
 
 
 /* search */
-
 .ui-control-search:is(input) {
     border-radius: 100px;
     width: 100%;
@@ -170,7 +161,6 @@ button)~.ui-control-icon {
 
 
 /* control elements are joined */
-
 [class*='ui-control'][data-joined] {
     gap: 0;
 }
@@ -199,7 +189,6 @@ button) {
 
 
 /* tabs */
-
 [class*='ui-control'][data-tabs] [data-active="true"]:after {
     content: "";
     position: absolute;
