@@ -42,8 +42,8 @@ function App() {
     const loadSites = async () => {
       setPagesLoading(true);
 
-      // const response = await fetch('http://localhost:4000/sites');
-      const response = await fetch('./data/sites.json');
+      const response = await fetch('http://localhost:4000/sites');
+      // const response = await fetch('./data/sites.json');
       const data = await response.json();
 
       setPagesLoading(false);
