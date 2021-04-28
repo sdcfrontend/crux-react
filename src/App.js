@@ -90,6 +90,22 @@ function App() {
     </div>
     <div class="wrap">
       <div className="flex-col gap-m ui-panel">
+
+        <div class="ui-panel-divider pad-b-xl">
+          <h2 class="display-3 mar-b-s">Largest Contenful Paint</h2>
+          <p>Some stuff here</p>
+        </div>  
+
+        <div class="ui-panel-divider pad-b-xl">
+          <h2 class="display-3 mar-b-s">First Input Delay</h2>
+          <p>Some stuff here</p>
+        </div>  
+
+        <div class="ui-panel-divider pad-b-xl">
+          <h2 class="display-3 mar-b-s">Cumulative Layout Shift</h2>
+          <p>Some stuff here</p>
+        </div>  
+      
       <h2 class="display-2">{`${pagesLoading ? 'Loading...' : 'CrUX Dashboard'}`}</h2>
 
       <div className="flex gap-l flex-v-start">
