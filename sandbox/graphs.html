@@ -83,6 +83,14 @@
                 }
             }
         };
+        const lineoptions = {
+            pointBorderWidth: 2,
+            pointRadius: 3,
+            pointBackgroundColor: (c) => {
+                return c.parsed.y > 80 ? c.element.options?.borderColor : "white"
+            },
+            tension: 0.1
+        };
 
         const config = {
             type: 'line',
@@ -92,21 +100,21 @@
                     label: 'Good',
                     data: [65, 59, 70, 77, 48, 56, 57, 40, 65, 59, 70, 87, 48, 56, 57, 40, 65],
                     borderColor: '#4db04a',
-                    backgroundColor: '#4db04a',
-                    pointRadius: 3,
-                    tension: 0.1
+                    pointBorderColor: "#4db04a",
+                    ...lineoptions
+
                 }, {
                     label: 'Average',
                     data: [16, 15, 17, 17, 14, 15, 15, 14, 16, 15, 17, 17, 14, 15, 15, 14, 16],
                     borderColor: '#e58a2a',
-                    backgroundColor: '#e58a2a',
-                    tension: 0.1
+                    pointBorderColor: "#e58a2a",
+                    ...lineoptions
                 }, {
                     label: 'Bad',
                     data: [6, 5, 7, 7, 4, 5, 5, 4, 6, 5, 7, 7, 4, 5, 5, 4, 6],
                     borderColor: '#e6191d',
-                    backgroundColor: '#e6191d',
-                    tension: 0.1
+                    pointBorderColor: "#e6191d",
+                    ...lineoptions
                 }]
             },
             options: genericOptions
