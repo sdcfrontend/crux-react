@@ -106,7 +106,9 @@ function App() {
           <h2 className="display-3 mar-b-xs">Largest Contenful Paint</h2>
           <div className="text-supporting text-em mar-b-l">Lower scores best</div>
           <div className="flex gap-m">
-            <div className="flex-grow">GRAPH</div>
+            <div className="flex-grow">
+       GRAPH       
+            </div>
             <div className="">
               <div className="ui-badge">
                   <div className="ui-badge-result" data-bad>

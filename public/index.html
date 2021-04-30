@@ -40,5 +40,133 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+
+    <script>
+      function drawchart(container, config) {
+        const rail = container.querySelector('[data-role="rail"]');
+        const canvas = container.querySelector('[data-role="canvas"]');
+        const body = container.querySelector('[data-role="body"]');
+        body.style.width = `${50 * config.data.labels.length}px`;
+        canvas.height = 70;
+        canvas.width = `${10 * config.data.labels.length}`;
+        rail.scrollTo(10000000, 0);
+        const chart = new Chart(canvas, config);
+      }
+
+      const options = {
+        responsive: true,
+        maintainAspectRatio: true,
+        layout: {
+          padding: 0
+        },
+        plugins: {
+          tooltip: {
+            enabled: false,
+            external: function (context) {
+              console.log(context);
+            }
+          }
+        }
+      };
+
+      const lineoptions = {
+        pointBorderWidth: 2,
+        pointRadius: 2,
+        pointHoverBorderWidth: 4,
+        pointBorderWidth: 5,
+        pointHitRadius: 10,
+        pointBackgroundColor: 'white',
+        tension: 0.1
+      };
+
+      const jan = ['Jan 2021','2','3','4','5','6'];
+      const feb = [['Feb 2021'],'2','3','4','5','6'];
+      const mar = [['Mar 2021'],'2','3','4','5','6'];
+      const apr = [['Apr 2021'],'2','3','4','5','6'];
+      const may = [['May 2021'],'2','3','4','5','6'];
+      const dates = [...jan, ...feb,...mar,...apr,...may];
+
+      const chart1config = {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [{
+            label: 'Good',
+            data: [65, 59, 77, 77, 48, 66, 57, 40, 55, 59, 70, 90, 48, 56, 57, 40, 65, 59, 70, 90, 48, 56, 57, 40, 65, 46, 43],
+            borderColor: '#4db04a',
+            pointBorderColor: "#4db04a",
+            ...lineoptions
+          }, {
+            label: 'Average',
+            data: [16, 15, 17, 17, 14, 15, 15, 14, 16, 15, 17, 17, 14, 15, 15, 14, 16, 16, 15, 17, 17, 14, 15, 15, 14, 16, 15],
+            borderColor: '#e58a2a',
+            pointBorderColor: "#e58a2a",
+            ...lineoptions
+          }, {
+            label: 'Bad',
+            data: [6, 5, 7, 7, 4, 5, 5, 4, 6, 5, 7, 7, 4, 5, 5, 4, 6],
+            borderColor: '#e6191d',
+            pointBorderColor: "#e6191d",
+            ...lineoptions
+          }]
+        },
+        options: {
+          ...options,
+          scales: {
+            y: {
+              min: 0,
+              max: 100,
+              grid: {
+                display: false
+              }
+            },
+            x: {
+              grid: {
+                color: 'rgba(0,0,0,0.03)'
+              }
+            }
+          }
+        }
+      };
+
+      const chart2config = {
+        type: 'line',
+        data: {
+          labels: dates,
+          labelsx: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          datasets: [{
+            label: 'CLS',
+            data: [0.2, 0.2, 0.23, 0.25, 0.45, 0.3, 0.2, 0.08, 0.16, 0.2, 0.24, 0.18, 0.1, 0.05, 0.2, 0.08, 0.16, 0.2, 0.24, 0.18, 0.1, 0.05, 0.18, 0.1, 0.05],
+            borderColor: 'black',
+            pointBorderColor: "black",
+            ...lineoptions
+          }],
+        },
+        options: {
+          ...options,
+          scales: {
+            y: {
+              reverse: true,
+              min: 0,
+              grid: {
+                display: false
+              }
+            },
+            x: {
+              grid: {
+                color: 'rgba(0,0,0,0.03)'
+              }
+            }
+          }
+        }
+      }
+      Chart.defaults.plugins.legend.display = false;
+      Chart.defaults.font.size = 11;
+
+      // drawchart(document.getElementById('chart-1'), chart1config);
+      // drawchart(document.getElementById('chart-2'), chart2config);
+                      
+      </script>
   </body>
 </html>
