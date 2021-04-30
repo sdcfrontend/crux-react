@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 
-export const useMetrics = () => {
-  const [requestBody, setRequestBody] = useState(false);
-  const [loading, setLoading] = useState(false);
+export const useMetrics = (initialRequestBody) => {
+  const [requestBody, setRequestBody] = useState(initialRequestBody);
+  const [metricsLoading, setMetricsLoading] = useState(false);
   const [metrics, setMetrics] = useState(null);
   const [error, setError] = useState(false);
-  
   useEffect(() => {    
     const fetchMetrics = async () => {
-      setLoading(true);
-
+      setMetricsLoading(true);
+      
       try {
         const endpointUrl = 'https://chromeuxreport.googleapis.com/v1/records:queryRecord';
         const requestOptions = {
@@ -24,7 +23,7 @@ export const useMetrics = () => {
           metric => ({ ...metric[1], name: metric[0] })
         ));
   
-        setLoading(false);
+        setMetricsLoading(false);
       }
     
       catch(error) {
@@ -32,8 +31,8 @@ export const useMetrics = () => {
       }
     }
 
-    fetchMetrics();
+    if (requestBody) fetchMetrics();
   }, [requestBody])
 
-  return { metrics, loading, error, requestBody, setRequestBody };
+  return { metrics, metricsLoading, error, requestBody, setRequestBody };
 }

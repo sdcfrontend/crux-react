@@ -1,23 +1,18 @@
 import Select from './select';
 
-const Picker = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPage, setCurrentPage, requestBody, setRequestBody }) => {  
+const Picker = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPage, setCurrentPage }) => {  
   const handleSiteChange = (e) => {
     const nextSite = sites.find(site => site._id === e.target.value);
 
     setCurrentSite(nextSite);
     setPages(nextSite.pages);
-    setRequestBody({
-      ...requestBody,
-      origin: nextSite.pages[0].url
-    })
+    setCurrentPage(nextSite.pages[0]);
   }
 
   const handlePageChange = (e) => {
-    setCurrentPage(e.target.value);
-    setRequestBody({
-      ...requestBody,
-      origin: e.target.value
-    })
+    const nextPage = pages.find(page => page._id === e.target.value);
+    console.log(nextPage)
+    setCurrentPage(nextPage);
   }
 
   return (
@@ -26,7 +21,7 @@ const Picker = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPa
         options={sites}
         label="name"
         value="_id"
-        currentValue={currentSite?.id}
+        currentValue={currentSite?._id}
         handler={handleSiteChange}
       />
 
@@ -35,8 +30,8 @@ const Picker = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPa
       <Select
         options={pages}
         label="name"
-        value="url"
-        currentValue={currentPage}
+        value="_id"
+        currentValue={currentPage?._id}
         handler={handlePageChange}
       />
     </div>
