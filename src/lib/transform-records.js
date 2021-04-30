@@ -3,7 +3,11 @@ const transformRecords = (records, currentDevice) => {
   const dataExample = [
     {
       name: 'largest_contentful_paint',
-      records: [
+      days: [
+        {
+          date: '',
+          histogram: {}
+        },
         {
           date: '',
           histogram: {}
@@ -12,15 +16,15 @@ const transformRecords = (records, currentDevice) => {
     },
     {
       name: 'first_input_delay',
-      records: []
+      days: []
     },
     {
       name: 'cumulative_layout_shift',
-      records: []
+      days: []
     },
     {
       name: 'first_contentful_paint',
-      records: []
+      days: []
     }
   ];
 
