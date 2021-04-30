@@ -8,3 +8,15 @@
     --metric-bad: hsl(359, 80%, 50%);
     --link-color-dark: #2AA2E1;
 }
+
+.metric-good {
+    background: linear-gradient(var(--metric-good), var(--metric-good));
+}
+
+.metric-average {
+    background: linear-gradient(var(--metric-average), var(--metric-average));
+}
+
+.metric-bad {
+    background: linear-gradient(var(--metric-bad), var(--metric-bad));
+}

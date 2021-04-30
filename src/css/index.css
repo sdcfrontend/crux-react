@@ -8,6 +8,7 @@
 @import 'utilities/spacing.css';
 @import 'utilities/text.css';
 @import 'components/bars.css';
+@import 'components/charts.css';
 @import 'components/ui-controls.css';
 @import 'components/ui-panels.css';
 @import 'components/ui-badge.css';

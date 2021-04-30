@@ -20,21 +20,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(false);
   const [currentDevice, setCurrentDevice] = useState(defaults.currentDevice);
   const [chosenMetrics, setChosenMetrics] = useState(defaults.chosenMetrics);
-  const [records, setRecords] = useState([]);
-  const [latestRecord, setLatestRecord] = useState([]);
   const [metrics, setMetrics] = useState([]);
   const [metricsLoading, setMetricsLoading] = useState(true);
-
-  // const { metrics, loading, requestBody, setRequestBody } = useMetrics(null);
-
-  // useEffect(() => {
-  //   setRequestBody({
-  //     ...requestBody,
-  //     origin: currentPage,
-  //     formFactor: currentDevice
-  //   });
-
-  // }, [currentPage]);
 
   useEffect(() => {
     const loadSites = async () => {
@@ -75,9 +62,7 @@ function App() {
       transformRecords(data, currentDevice);
 
       setMetricsLoading(false);
-      setMetrics(Object.entries(data[0].devices[currentDevice]).map(
-        metric => ({ ...metric[1], name: metric[0] })
-      ));
+      setMetrics(data[0].devices[currentDevice]);
     }
 
     try {

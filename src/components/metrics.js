@@ -4,9 +4,11 @@ const Metrics = ({ metrics, chosenMetrics, metricsLoading }) => {
   const visibleMetrics = metrics?.filter(metric => chosenMetrics.includes(metric.name))
 
   return (
-    visibleMetrics?.map((metric, i) => (
-      <Metric key={i} metric={metric}/>
-    ))
+    metricsLoading
+      ? <p>Loading...</p>
+      : visibleMetrics?.map((metric, i) => (
+          <Metric key={i} metric={metric}/>
+        ))
   );
 }
 
