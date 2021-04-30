@@ -20,13 +20,18 @@
             position: relative;
         }
         
+        .chart canvas {
+            border: 1px solid red;
+        }
+        
         .chart-target {
             position: absolute;
-            height: 3px;
+            height: 2px;
             background: rgba(0, 0, 0, 0.1);
             width: 100%;
-            top: 20%;
+            bottom: 87%;
             left: 0;
+            transform: translateY(1px);
         }
         
         .chart-target:after {
@@ -41,12 +46,41 @@
             border-radius: 4px;
             transform: translate(100%, -50%);
         }
+        
+        .band {
+            /* display: none; */
+            position: absolute;
+            left: 33px;
+            width: 100%;
+            top: 0;
+            height: 20%;
+            mix-blend-mode: screen;
+        }
+        
+        .good {
+            background-color: green;
+        }
+        
+        .average {
+            top: 20%;
+            height: 40%;
+            background-color: #e58a2a
+        }
+        
+        .bad {
+            top: 60%;
+            height: 30%;
+            background-color: #e6191d;
+        }
     </style>
 </head>
 
 <body>
     <div class="chart">
         <div class="chart-wrap">
+            <div class="band good"><span></span> </div>
+            <div class="band average"><span></span></div>
+            <div class="band bad"><span></span></div>
             <canvas id="myChart" width="400" height="200"></canvas>
             <div class="chart-target" data-label="80% target"></div>
         </div>
@@ -57,15 +91,15 @@
         const genericOptions = {
             responsive: true,
             maintainAspectRatio: true,
+            layout: {
+                padding: 0
+            },
             scales: {
                 y: {
                     min: 0,
                     max: 100,
                     grid: {
                         display: false
-                    },
-                    color: function(context) {
-                        return 'red'
                     }
                 },
                 x: {
@@ -85,8 +119,8 @@
         };
         const lineoptions = {
             pointBorderWidth: 2,
-            pointRadius: 4,
-            pointBorderWidth: 2,
+            pointRadius: 2,
+            pointBorderWidth: 5,
             pointBackgroundColor: 'white',
             tension: 0.1
         };
@@ -96,29 +130,34 @@
             data: {
                 labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
                 datasets: [{
-                    label: 'Good',
-                    data: [65, 59, 70, 77, 48, 56, 57, 40, 65, 59, 70, 87, 48, 56, 57, 40, 65],
-                    borderColor: '#4db04a',
-                    pointBorderColor: "#4db04a",
-                    ...lineoptions
+                        label: 'Good',
+                        data: [65, 59, 77, 77, 48, 66, 57, 40, 55, 59, 70, 100, 48, 56, 57, 40, 65],
+                        borderColor: 'green',
+                        pointBorderColor: "green",
+                        ...lineoptions
 
-                }, {
-                    label: 'Average',
-                    data: [16, 15, 17, 17, 14, 15, 15, 14, 16, 15, 17, 17, 14, 15, 15, 14, 16],
-                    borderColor: '#e58a2a',
-                    pointBorderColor: "#e58a2a",
-                    ...lineoptions
-                }, {
-                    label: 'Bad',
-                    data: [6, 5, 7, 7, 4, 5, 5, 4, 6, 5, 7, 7, 4, 5, 5, 4, 6],
-                    borderColor: '#e6191d',
-                    pointBorderColor: "#e6191d",
-                    ...lineoptions
-                }]
+                    },
+
+                    {
+                        label: 'Average',
+                        data: [16, 15, 17, 17, 14, 15, 15, 14, 16, 15, 17, 17, 14, 15, 15, 14, 16],
+                        borderColor: '#e58a2a',
+                        pointBorderColor: "#e58a2a",
+                        ...lineoptions
+                    }, {
+                        label: 'Bad',
+                        data: [6, 5, 7, 7, 4, 5, 5, 4, 6, 5, 7, 7, 4, 5, 5, 4, 6],
+                        borderColor: '#e6191d',
+                        pointBorderColor: "#e6191d",
+                        ...lineoptions
+                    }
+
+                ]
             },
             options: genericOptions
         };
         Chart.defaults.plugins.legend.display = false;
+        Chart.defaults.scale.display = false;
         var myChart = new Chart(ctx, config);
     </script>
 </body>
