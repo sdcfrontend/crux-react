@@ -11,7 +11,7 @@ const Picker = ({ sites, currentSite, setCurrentSite, pages, setPages, currentPa
 
   const handlePageChange = (e) => {
     const nextPage = pages.find(page => page._id === e.target.value);
-
+    console.log(nextPage)
     setCurrentPage(nextPage);
   }
 

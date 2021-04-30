@@ -20,6 +20,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(false);
   const [currentDevice, setCurrentDevice] = useState(defaults.currentDevice);
   const [chosenMetrics, setChosenMetrics] = useState(defaults.chosenMetrics);
+  const [records, setRecords] = useState([]);
   const [metrics, setMetrics] = useState([]);
   const [metricsLoading, setMetricsLoading] = useState(true);
 
@@ -27,8 +28,8 @@ function App() {
     const loadSites = async () => {
       setPagesLoading(true);
 
-      const response = await fetch(`http://localhost:4000/sites`);
-      // const response = await fetch('./data/sites.json');
+      // const response = await fetch(`http://localhost:4000/sites`);
+      const response = await fetch('./data/sites.json');
       const data = await response.json();
 
       setPagesLoading(false);
@@ -55,13 +56,15 @@ function App() {
     const loadSites = async () => {
       setMetricsLoading(true);
 
-      const response = await fetch(`http://localhost:4000/records/${currentPage._id}`);
+      // const response = await fetch(`http://localhost:4000/records/${currentPage._id}`);
+      const response = await fetch('./data/records.json');
       const data = await response.json();
 
       console.log(data)
       transformRecords(data, currentDevice);
 
       setMetricsLoading(false);
+      setRecords(data[0].devices);
       setMetrics(data[0].devices[currentDevice]);
     }
 
@@ -74,7 +77,7 @@ function App() {
 
       console.log(error);
     }
-  }, [currentPage]);
+  }, [currentPage, currentDevice]);
 
   return (
     <>
