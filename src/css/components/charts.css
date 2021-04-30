@@ -1,95 +1,95 @@
 .chart {
-  position: relative;
-  background: white;
+    position: relative;
+    background: white;
 }
 
 .chart-wrap {
-  position: relative;
+    position: relative;
 }
 
 .chart-rail {
-  overflow: scroll;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
+    overflow: scroll;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 .chart-body {
-  display: flex;
-  position: relative;
-  flex-direction: column;
+    display: flex;
+    position: relative;
+    flex-direction: column;
 }
 
 .chart-target {
-  position: absolute;
-  height: 2px;
-  background: rgba(0, 0, 0, 0.1);
-  width: 100%;
-  top: 20%;
-  left: 0;
-  transform: translateY(1px);
-  opacity: 0.9;
-  z-index: 2;
-  pointer-events: none;
+    position: absolute;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    top: 20%;
+    left: 0;
+    transform: translateY(1px);
+    opacity: 0.9;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .chart-target:after {
-  content: attr(data-label);
-  font-size: 14px;
-  position: absolute;
-  right: 18px;
-  max-width: 90px;
-  background: white;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  padding: 0.4em 0.7em;
-  border-radius: 4px;
-  transform: translate(0, -50%);
+    content: attr(data-label);
+    font-size: 14px;
+    position: absolute;
+    right: 18px;
+    max-width: 90px;
+    background: white;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 0.4em 0.7em;
+    border-radius: 4px;
+    transform: translate(0, -50%);
 }
 
 .chart-band {
-  position: absolute;
-  left: 36px;
-  width: calc(100% - 36px);
-  mix-blend-mode: screen;
-  pointer-events: none;
+    position: absolute;
+    left: 36px;
+    width: calc(100% - 36px);
+    mix-blend-mode: screen;
+    pointer-events: none;
 }
 
 .chart-band--good {
-  top: 0;
-  height: 20%;
+    top: 0;
+    height: 20%;
 }
 
 .chart-band--average {
-  top: 20%;
-  height: 40%;
+    top: 20%;
+    height: 40%;
 }
 
 .chart-band--bad {
-  top: 60%;
-  height: calc(40% - 36px);
+    top: 60%;
+    height: calc(40% - 36px);
 }
 
 .chart-key {
-  display: flex;
-  justify-content: center;
-  font-size: var(--label-text);
-  font-weight: bold;
-  padding-bottom: var(--component-gap);
+    display: flex;
+    justify-content: center;
+    font-size: var(--label-text);
+    font-weight: bold;
+    padding-bottom: var(--component-gap);
 }
 
 .chart-key>span {
-  background-size: 0;
-  display: flex;
-  align-items: center;
-  gap: calc(var(--space-xs) / 2);
+    background-size: 0;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--space-xs) / 2);
 }
 
 .chart-key>span:before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: inherit;
-  background-size: 100%;
-  position: relative;
-  top: -1px;
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: inherit;
+    background-size: 100%;
+    position: relative;
+    top: -1px;
 }
