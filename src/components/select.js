@@ -1,6 +1,6 @@
 const Select = ({ options, label, value, currentValue, handler }) => {
   return (
-    <div class="ui-control">
+    <div className="ui-control">
       <select className="ui-control-select" value={currentValue} onChange={handler}>
         <option value="default" disabled>Sites</option>
         {options.map((option, i) => (

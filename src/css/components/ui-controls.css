@@ -45,7 +45,7 @@
     pointer-events: none;
 }
 
-[class^=ui-control-]:is(select, input, button) {
+[class^=ui-control-]:is(select, input, button, a) {
     -webkit-appearance: none;
     appearance: none;
     background: var(--shade-0);
@@ -98,6 +98,7 @@
 
 .ui-control-button {
     cursor: pointer;
+    text-decoration: none;
 }
 
 .ui-control-button .ui-control-icon {
@@ -123,17 +124,18 @@
 
 /* active state */
 
-[class^=ui-control-][data-active="true"]:is(select,
+[class^=ui-control-].ui-control--active:is(select,
 input,
-button) {
+button,
+a) {
     background: var(--link-color);
     border-color: var(--link-color);
     color: var(--text-color-invert);
     font-weight: 600;
 }
 
-[class^=ui-control-][data-active="true"]~.ui-control-icon,
-[class^=ui-control-][data-active="true"] .ui-control-icon {
+[class^=ui-control-].ui-control--active~.ui-control-icon,
+[class^=ui-control-].ui-control--active .ui-control-icon {
     filter: invert(1);
 }
 
@@ -142,14 +144,16 @@ button) {
 
 [class^=ui-control-][disabled]:is(select,
 input,
-button) {
+button,
+a) {
     background: var(--component-shade);
     color: var(--text-color-tertiary);
 }
 
 [class^=ui-control-][disabled]:is(select,
 input,
-button)~.ui-control-icon {
+button,
+a)~.ui-control-icon {
     opacity: 0.25;
 }
 
@@ -177,21 +181,24 @@ button)~.ui-control-icon {
 
 [class*='ui-control'][data-joined] :is(select,
 input,
-button) {
+button,
+a) {
     border-right-style: none;
     border-radius: 0;
 }
 
 [class*='ui-control'][data-joined]>:first-child> :is(select,
 input,
-button) {
+button,
+a) {
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
 }
 
 [class*='ui-control'][data-joined]>:last-child> :is(select,
 input,
-button) {
+button,
+a) {
     border-top-right-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
     border-right-style: solid;
@@ -200,7 +207,7 @@ button) {
 
 /* tabs */
 
-[class*='ui-control'][data-tabs] [data-active="true"]:after {
+[class*='ui-control'][data-tabs] .ui-control--active:after {
     content: "";
     position: absolute;
     width: 0.7em;

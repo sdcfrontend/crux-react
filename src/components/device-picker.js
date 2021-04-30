@@ -1,19 +1,15 @@
-const DevicePicker = ({ currentDevice, setCurrentDevice, requestBody, setRequestBody }) => {
+const DevicePicker = ({ currentDevice, setCurrentDevice }) => {
   const handleDeviceChange = (e) => {
     setCurrentDevice(e.target.value);
-    setRequestBody({
-      ...requestBody,
-      formFactor: e.target.value
-    })
   }
 
   return (
     <div className="ui-control-block" data-joined>
-      <div class="ui-control">
-        <button className="ui-control-button" onClick={handleDeviceChange} value="PHONE" data-active={currentDevice === 'PHONE'}>Mobile</button>
+      <div className="ui-control">
+        <button className={`ui-control-button${currentDevice === 'PHONE' ? ' ui-control--active' : ''}`} onClick={handleDeviceChange} value="PHONE">Mobile</button>
       </div>
-      <div class="ui-control">
-        <button className="ui-control-button" onClick={handleDeviceChange} value="DESKTOP" data-active={currentDevice === 'DESKTOP'}>Desktop</button>
+      <div className="ui-control">
+        <button className={`ui-control-button${currentDevice === 'DESKTOP' ? ' ui-control--active' : ''}`} onClick={handleDeviceChange} value="DESKTOP">Desktop</button>
       </div>
     </div>
   );

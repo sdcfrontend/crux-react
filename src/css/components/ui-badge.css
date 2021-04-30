@@ -47,17 +47,17 @@
     fill: none;
 }
 
-.ui-badge-result[data-good] {
+.ui-badge-result[data-score-label="good"] {
     stroke: var(--metric-good);
     color: var(--metric-good);
 }
 
-.ui-badge-result[data-average] {
+.ui-badge-result[data-score-label="average"] {
     stroke: var(--metric-average);
     color: var(--metric-average);
 }
 
-.ui-badge-result[data-bad] {
+.ui-badge-result[data-score-label="bad"] {
     stroke: var(--metric-bad);
     color: var(--metric-bad);
 }
