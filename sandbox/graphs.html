@@ -16,7 +16,7 @@
     <div class="chart" id="chart-1">
         <div class="chart-key gap-s"><span class="metric-good">% Good</span><span class="metric-average">% Average</span><span class="metric-bad">% Bad</span></div>
         <div class="chart-wrap">
-            <div class="chart-target" data-label="80% target"></div>
+            <div class="chart-target" data-label="80% target" style="--pc: 80"></div>
             <div class="chart-rail" data-role="rail">
                 <div class="chart-body" data-role="body">
                     <canvas width="160" height="90" data-role="canvas"></canvas>
@@ -29,7 +29,7 @@
     <div class="chart" id="chart-2">
         <div class="chart-key gap-s"><span class="metric-good">Good (<0.1)</span><span class="metric-average">Average</span><span class="metric-bad">Bad (>0.5)</span></div>
         <div class="chart-wrap">
-            <div class="chart-target" data-label="0.2 target" style="bottom: 84%"></div>
+            <div class="chart-target" data-label="0.2 target" style="--pc: 84"></div>
             <div class="chart-rail" data-role="rail">
                 <div class="chart-body" data-role="body">
                     <div class="chart-band chart-band--good metric-good"></div>
@@ -39,6 +39,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="chart">
+        <h1>BAR CHART</h1>
+        <canvas width="400" height="200" data-role="canvas" id="chart-3"></canvas>
     </div>
 
     <script>
@@ -70,6 +75,7 @@
         };
 
         const lineoptions = {
+            borderWidth: 2,
             pointBorderWidth: 2,
             pointRadius: 2,
             pointHoverBorderWidth: 4,
@@ -175,6 +181,47 @@
 
         drawchart(document.getElementById('chart-1'), chart1config);
         drawchart(document.getElementById('chart-2'), chart2config);
+
+
+        // bar chart
+
+        new Chart(document.getElementById('chart-3'), {
+            type: 'bar',
+            data: {
+                labels: [1, 2, 3, 4, 5, 6, 7],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    backgroundColor: 'green'
+                }, {
+                    label: 'My First Dataset',
+                    data: [25, 30, 10, 8, 15, 25, 20],
+                    backgroundColor: 'orange'
+                }, {
+                    label: 'My First Dataset',
+                    data: [10, 11, 10, 11, 29, 20, 40],
+                    backgroundColor: 'red'
+                }]
+            },
+            options: {
+                grouped: true,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        stacked: true
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        stacked: true
+                    }
+                }
+            },
+        });
     </script>
 </body>
 

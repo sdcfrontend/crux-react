@@ -21,10 +21,11 @@
 
 .chart-target {
     position: absolute;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.04);
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
     width: 100%;
-    top: 20%;
+    top: calc(100% - (var(--pc) * 1%));
+    height: calc(var(--pc) * 1% - 48px);
     left: 0;
     transform: translateY(1px);
     opacity: 0.9;
@@ -34,13 +35,14 @@
 
 .chart-target:after {
     content: attr(data-label);
-    font-size: 14px;
+    font-size: 13px;
     position: absolute;
+    font-weight: bold;
     right: 18px;
     max-width: 90px;
     background: white;
     border: 2px solid rgba(0, 0, 0, 0.1);
-    padding: 0.4em 0.7em;
+    padding: 0.44em 0.8em;
     border-radius: 4px;
     transform: translate(0, -50%);
 }
