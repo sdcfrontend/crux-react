@@ -42,6 +42,7 @@
     stroke-width: 8;
     stroke: inherit;
     stroke-dasharray: calc((360 / 100) * var(--score)), 350;
+    transition: stroke-dasharray 0.25s;
     transform: rotate(-90deg);
     transform-origin: center;
     fill: none;

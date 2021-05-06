@@ -1,56 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="../src/css/index.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
+    <div class="tooltip" data-role="tooltip"></div>
     <h1>Cumulative Layout Shift</h1>
     <h5>User breakdown %</h5>
     <div class="chart" id="chart-1">
-      <div class="chart-key gap-s"><span class="metric-good">% Good</span><span class="metric-average">% Average</span><span class="metric-bad">% Bad</span></div>
-      <div class="chart-wrap">
-        <div class="chart-target" data-label="80% target"></div>
-        <div class="chart-rail" data-role="rail">
-          <div class="chart-body" data-role="body">
-            <canvas width="160" height="90" data-role="canvas"></canvas>
-          </div>
+        <div class="chart-key gap-s"><span class="metric-good">% Good</span><span class="metric-average">%
+          Average</span><span class="metric-bad">% Bad</span></div>
+        <div class="chart-wrap">
+            <div class="chart-target" data-label="80% target" style="--pc: 80"></div>
+            <div class="chart-rail" data-role="rail">
+                <div class="chart-body" data-role="body">
+                    <canvas width="160" height="90" data-role="canvas"></canvas>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <h5>75pc score</h5>
     <div class="chart" id="chart-2">
-      <div class="chart-key gap-s"><span class="metric-good">Good (<0.1)</span><span class="metric-average">Average</span><span class="metric-bad">Bad (>0.5)</span></div>
-      <div class="chart-wrap">
-        <div class="chart-target" data-label="0.2 target" style="bottom: 84%"></div>
-        <div class="chart-rail" data-role="rail">
-          <div class="chart-body" data-role="body">
-            <div class="chart-band chart-band--good metric-good"></div>
-            <div class="chart-band chart-band--average metric-average"></div>
-            <div class="chart-band chart-band--bad metric-bad"></div>
-            <canvas width="400" height="200" data-role="canvas"></canvas>
-          </div>
+        <div class="chart-key gap-s"><span class="metric-good">Good (<0.1)</span><span class="metric-average">Average</span><span class="metric-bad">Bad (>0.5)</span></div>
+        <div class="chart-wrap">
+            <div class="chart-target" data-label="0.2 target" style="--pc: 84"></div>
+            <div class="chart-rail" data-role="rail">
+                <div class="chart-body" data-role="body">
+                    <div class="chart-band chart-band--good metric-good"></div>
+                    <div class="chart-band chart-band--average metric-average"></div>
+                    <div class="chart-band chart-band--bad metric-bad"></div>
+                    <canvas width="400" height="200" data-role="canvas"></canvas>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+    <h1>BAR CHART</h1>
+    <div class="chart" id="chart-3">
+        <div class="chart-key gap-s"><span class="metric-good">Good (<0.1)</span><span class="metric-average">Average</span><span class="metric-bad">Bad (>0.5)</span></div>
+        <div class="chart-wrap">
+            <div class="chart-rail" data-role="rail">
+                <div class="chart-body" data-role="body">
+                    <canvas width="400" height="150" data-role="canvas" id="chart-3"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-      function drawchart(container, config) {
-        const rail = container.querySelector('[data-role="rail"]');
-        const canvas = container.querySelector('[data-role="canvas"]');
-        const body = container.querySelector('[data-role="body"]');
-        body.style.width = `${50 * config.data.labels.length}px`;
-        canvas.height = 70;
-        canvas.width = `${10 * config.data.labels.length}`;
-        rail.scrollTo(10000000, 0);
-        const chart = new Chart(canvas, config);
+        const tooltip = document.querySelector('[data-role="tooltip"]');
+
+        function drawchart(container, config) {
+            const rail = container.querySelector('[data-role="rail"]');
+            const canvas = container.querySelector('[data-role="canvas"]');
+            const body = container.querySelector('[data-role="body"]');
+
+            if (config.type === 'line') {
+                body.style.width = `${50 * config.data.labels.length}px`;
+                canvas.height = 70;
+                canvas.width = `${10 * config.data.labels.length}`;
+                rail.scrollTo(10000000, 0);
+            }
+
+            if (config.type === 'bar') {
+                canvas.height = 9 * config.data.labels.length;
+                canvas.width = 140;
+            }
+
+            const chart = new Chart(canvas, config);
+        }
+
+        const tooltipoptions = {
+                enabled: false,
+                external: function(context) {
+                        const dims = context.chart.ctx.canvas.parentNode.getBoundingClientRect();
+                        const opacity = context.tooltip.opacity;
+
+                        let x = context.tooltip.caretX - Math.abs(dims.left);
+                        let y = context.tooltip.caretY + dims.top + window.pageYOffset;
+
+                        tooltip.style.cssText = `top: ${y}px; left: ${x}px; opacity: ${opacity};`;
+                        tooltip.innerHTML = `
+            ${context.tooltip.title}<br>
+            <b>${context.tooltip.body.reduceRight((a, b, c, d) => `${a + b.lines}, `, []).slice(0, -2)}</b>
+          `;
+        }
       }
 
       const options = {
@@ -60,16 +101,12 @@
           padding: 0
         },
         plugins: {
-          tooltip: {
-            enabled: false,
-            external: function (context) {
-              console.log(context);
-            }
-          }
+          tooltip: { ...tooltipoptions }
         }
       };
 
       const lineoptions = {
+        borderWidth: 2,
         pointBorderWidth: 2,
         pointRadius: 2,
         pointHoverBorderWidth: 4,
@@ -79,12 +116,26 @@
         tension: 0.1
       };
 
-      const jan = ['Jan 2021','2','3','4','5','6'];
-      const feb = [['Feb 2021'],'2','3','4','5','6'];
-      const mar = [['Mar 2021'],'2','3','4','5','6'];
-      const apr = [['Apr 2021'],'2','3','4','5','6'];
-      const may = [['May 2021'],'2','3','4','5','6'];
-      const dates = [...jan, ...feb,...mar,...apr,...may];
+      const xaxis = {
+        grid: {
+          color: 'rgba(0,0,0,0.03)'
+        },
+
+        ticks: {
+          // Include a dollar sign in the ticks
+          callback: function (val, index) {
+            // Only show date if first of month
+            return (new Date(this.getLabelForValue(val)).getDate() === 1) ? this.getLabelForValue(val) : '';
+          },
+        }
+      };
+
+      const jan = ['Jan 1 2021', 'Jan 2 2021', 'Jan 3 2021', 'Jan 4 2021', 'Jan 5 2021', 'Jan 6 2021'];
+      const feb = ['Feb 1 2021', 'Feb 2 2021', 'Feb 3 2021', 'Feb 4 2021', 'Feb 5 2021', 'Feb 6 2021'];
+      const mar = ['Mar 1 2021', 'Mar 2 2021', 'Mar 3 2021', 'Mar 4 2021', 'Mar 5 2021', 'Mar 6 2021'];
+      const apr = ['Apr 1 2021', 'Apr 2 2021', 'Apr 3 2021', 'Apr 4 2021', 'Apr 5 2021', 'Apr 6 2021'];
+      const may = ['May 1 2021', 'May 2 2021', 'May 3 2021', 'May 4 2021', 'May 5 2021', 'May 6 2021'];
+      const dates = [...jan, ...feb, ...mar, ...apr, ...may];
 
       const chart1config = {
         type: 'line',
@@ -121,9 +172,7 @@
               }
             },
             x: {
-              grid: {
-                color: 'rgba(0,0,0,0.03)'
-              }
+              ...xaxis
             }
           }
         }
@@ -153,19 +202,61 @@
               }
             },
             x: {
-              grid: {
-                color: 'rgba(0,0,0,0.03)'
-              }
+              ...xaxis
             }
           }
         }
       }
+
+    const chart3config = {
+        type: 'bar',
+        data: {
+          labels: ['www.guardian.co.uk', 'www.telegraph.co.uk', 'www.bbc.co.uk/sport', 'www.skysports.com', 'www.skynews.com', 'sport.sky.de'],
+          datasets: [{
+            label: 'Good',
+            data: [65, 59, 80, 81, 56, 60],
+            backgroundColor: '#4db04a',
+            categoryPercentage: 1
+          }, {
+            label: 'Average',
+            data: [25, 30, 10, 8, 15, 20],
+            backgroundColor: '#e58a2a',
+            categoryPercentage: 1
+          }, {
+            label: 'Bad',
+            data: [10, 11, 10, 11, 29, 20],
+            backgroundColor: '#e6191d',
+            categoryPercentage: 1
+          }]
+        },
+        options: {
+          ...options,
+          grouped: true,
+          indexAxis: 'y',
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              },
+              stacked: true
+            },
+            y: {
+              grid: {
+                display: false
+              },
+              stacked: true
+            }
+          }
+        },
+      };
+
       Chart.defaults.plugins.legend.display = false;
       Chart.defaults.font.size = 11;
 
       drawchart(document.getElementById('chart-1'), chart1config);
       drawchart(document.getElementById('chart-2'), chart2config);
+      drawchart(document.getElementById('chart-3'), chart3config);
     </script>
-  </body>
+</body>
 
 </html>
