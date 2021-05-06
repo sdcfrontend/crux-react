@@ -9,7 +9,8 @@ const sitesAdapter = createEntityAdapter({
 export const fetchSites = createAsyncThunk(
   'sites/selectAllSites',
   async () => {
-    const response = await fetch('http://localhost:4000/sites')
+    const response = await fetch('./data/sites.json')
+    // const response = await fetch('http://localhost:4000/sites')
     const data = await response.json()
     const normalized = normalize(data, arrayOfSites);
 
