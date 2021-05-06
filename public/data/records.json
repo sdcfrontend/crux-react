@@ -1,205 +1,388 @@
 [
     {
-        "dateAdded": "2021-05-02T10:02:33.091Z",
-        "dateModified": "2021-05-02T10:02:33.091Z",
-        "_id": "608e8784b683674ba3a12633",
-        "pageId": "60888abbeec36917ee5cb9b2",
-        "devices": [
+        "metrics": [
             {
-                "_id": "60888abbeec36917ee5cb9b2-0",
-                "PHONE": [
-                    {
-                        "histogram": [
-                            {
-                                "start": 0,
-                                "end": 2500,
-                                "density": 0.8406788580449979
-                            },
-                            {
-                                "start": 2500,
-                                "end": 4000,
-                                "density": 0.11169582949611942
-                            },
-                            {
-                                "start": 4000,
-                                "density": 0.047625312458887306
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": 2041
+                "_id": "ckocoed8l0000v3td1e2587xc",
+                "name": "largest_contentful_paint",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 2500,
+                            "density": 0.8386863235487743
                         },
-                        "name": "largest_contentful_paint",
-                        "_id": 3
-                    },
-                    {
-                        "histogram": [
-                            {
-                                "start": 0,
-                                "end": 100,
-                                "density": 0.8743477647722389
-                            },
-                            {
-                                "start": 100,
-                                "end": 300,
-                                "density": 0.07164010717811249
-                            },
-                            {
-                                "start": 300,
-                                "density": 0.054012128049640125
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": 33
+                        {
+                            "start": 2500,
+                            "end": 4000,
+                            "density": 0.11234697907068647
                         },
-                        "name": "first_input_delay",
-                        "_id": 2
-                    },
-                    {
-                        "histogram": [
-                            {
-                                "start": "0.00",
-                                "end": "0.10",
-                                "density": 0.7768112178654893
-                            },
-                            {
-                                "start": "0.10",
-                                "end": "0.25",
-                                "density": 0.062970656972215
-                            },
-                            {
-                                "start": "0.25",
-                                "density": 0.16021812516229603
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": "0.09"
-                        },
-                        "name": "cumulative_layout_shift",
-                        "_id": 0
-                    },
-                    {
-                        "histogram": [
-                            {
-                                "start": 0,
-                                "end": 1000,
-                                "density": 0.550385570513661
-                            },
-                            {
-                                "start": 1000,
-                                "end": 3000,
-                                "density": 0.393281923931514
-                            },
-                            {
-                                "start": 3000,
-                                "density": 0.05633250555483009
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": 1512
-                        },
-                        "name": "first_contentful_paint",
-                        "_id": 1
+                        {
+                            "start": 4000,
+                            "density": 0.04896669738054555
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 2054
                     }
-                ]
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 2500,
+                            "density": 0.919804400977991
+                        },
+                        {
+                            "start": 2500,
+                            "end": 4000,
+                            "density": 0.05183374083129557
+                        },
+                        {
+                            "start": 4000,
+                            "density": 0.028361858190708803
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 1402
+                    }
+                }
             },
             {
-                "_id": "60888abbeec36917ee5cb9b2-1",
-                "DESKTOP": [
-                    {
-                        "histogram": [
-                            {
-                                "start": 0,
-                                "end": 2500,
-                                "density": 0.9197349042709833
-                            },
-                            {
-                                "start": 2500,
-                                "end": 4000,
-                                "density": 0.05130093274423147
-                            },
-                            {
-                                "start": 4000,
-                                "density": 0.028964162984781314
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": 1408
+                "_id": "ckocoed8m0001v3td8nlzhey2",
+                "name": "first_input_delay",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 100,
+                            "density": 0.8737494716077153
                         },
-                        "name": "largest_contentful_paint",
-                        "_id": 3
-                    },
-                    {
-                        "histogram": [
-                            {
-                                "start": 0,
-                                "end": 100,
-                                "density": 0.9675247524752528
-                            },
-                            {
-                                "start": 100,
-                                "end": 300,
-                                "density": 0.020990099009901106
-                            },
-                            {
-                                "start": 300,
-                                "density": 0.011485148514851506
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": 4
+                        {
+                            "start": 100,
+                            "end": 300,
+                            "density": 0.07284768211920477
                         },
-                        "name": "first_input_delay",
-                        "_id": 2
-                    },
-                    {
-                        "histogram": [
-                            {
-                                "start": "0.00",
-                                "end": "0.10",
-                                "density": 0.6573787409700745
-                            },
-                            {
-                                "start": "0.10",
-                                "end": "0.25",
-                                "density": 0.1800825593395259
-                            },
-                            {
-                                "start": "0.25",
-                                "density": 0.162538699690403
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": "0.15"
-                        },
-                        "name": "cumulative_layout_shift",
-                        "_id": 0
-                    },
-                    {
-                        "histogram": [
-                            {
-                                "start": 0,
-                                "end": 1000,
-                                "density": 0.727593152064449
-                            },
-                            {
-                                "start": 1000,
-                                "end": 3000,
-                                "density": 0.23967774420946564
-                            },
-                            {
-                                "start": 3000,
-                                "density": 0.03272910372608268
-                            }
-                        ],
-                        "percentiles": {
-                            "p75": 1077
-                        },
-                        "name": "first_contentful_paint",
-                        "_id": 1
+                        {
+                            "start": 300,
+                            "density": 0.05340284627307326
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 33
                     }
-                ]
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 100,
+                            "density": 0.9687128712871341
+                        },
+                        {
+                            "start": 100,
+                            "end": 300,
+                            "density": 0.020198019801980306
+                        },
+                        {
+                            "start": 300,
+                            "density": 0.011089108910891106
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 4
+                    }
+                }
+            },
+            {
+                "_id": "ckocoed8m0002v3td3qxybukq",
+                "name": "cumulative_layout_shift",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": "0.00",
+                            "end": "0.10",
+                            "density": 0.7857235561323805
+                        },
+                        {
+                            "start": "0.10",
+                            "end": "0.25",
+                            "density": 0.05866320571057746
+                        },
+                        {
+                            "start": "0.25",
+                            "density": 0.15561323815704123
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": "0.08"
+                    }
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": "0.00",
+                            "end": "0.10",
+                            "density": 0.6649511065362866
+                        },
+                        {
+                            "start": "0.10",
+                            "end": "0.25",
+                            "density": 0.18013381369017054
+                        },
+                        {
+                            "start": "0.25",
+                            "density": 0.1549150797735467
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": "0.14"
+                    }
+                }
+            },
+            {
+                "_id": "ckocoed8m0003v3td4ekdhos5",
+                "name": "first_contentful_paint",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 1000,
+                            "density": 0.5474233529028071
+                        },
+                        {
+                            "start": 1000,
+                            "end": 3000,
+                            "density": 0.39556425309850135
+                        },
+                        {
+                            "start": 3000,
+                            "density": 0.05701239399869602
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 1525
+                    }
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 1000,
+                            "density": 0.7345399698340853
+                        },
+                        {
+                            "start": 1000,
+                            "end": 3000,
+                            "density": 0.2327802916038203
+                        },
+                        {
+                            "start": 3000,
+                            "density": 0.0326797385620916
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 1071
+                    }
+                }
             }
         ],
+        "dateAdded": "2021-05-06T08:40:13.252Z",
+        "dateModified": "2021-05-06T08:40:13.252Z",
+        "_id": "6093b4190cd69b4b1b70a3b8",
+        "pageId": "60888abbeec36917ee5cb9b2",
+        "__v": 0
+    },
+    {
+        "metrics": [
+            {
+                "_id": "ckocoeerg0000vjtdarnsagts",
+                "name": "largest_contentful_paint",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 2500,
+                            "density": 0.8386863235487743
+                        },
+                        {
+                            "start": 2500,
+                            "end": 4000,
+                            "density": 0.11234697907068647
+                        },
+                        {
+                            "start": 4000,
+                            "density": 0.04896669738054555
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 2054
+                    }
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 2500,
+                            "density": 0.919804400977991
+                        },
+                        {
+                            "start": 2500,
+                            "end": 4000,
+                            "density": 0.05183374083129557
+                        },
+                        {
+                            "start": 4000,
+                            "density": 0.028361858190708803
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 1402
+                    }
+                }
+            },
+            {
+                "_id": "ckocoeerh0001vjtd3npm21w1",
+                "name": "first_input_delay",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 100,
+                            "density": 0.8737494716077153
+                        },
+                        {
+                            "start": 100,
+                            "end": 300,
+                            "density": 0.07284768211920477
+                        },
+                        {
+                            "start": 300,
+                            "density": 0.05340284627307326
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 33
+                    }
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 100,
+                            "density": 0.9687128712871341
+                        },
+                        {
+                            "start": 100,
+                            "end": 300,
+                            "density": 0.020198019801980306
+                        },
+                        {
+                            "start": 300,
+                            "density": 0.011089108910891106
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 4
+                    }
+                }
+            },
+            {
+                "_id": "ckocoeerh0002vjtd1bnj6rrc",
+                "name": "cumulative_layout_shift",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": "0.00",
+                            "end": "0.10",
+                            "density": 0.7857235561323805
+                        },
+                        {
+                            "start": "0.10",
+                            "end": "0.25",
+                            "density": 0.05866320571057746
+                        },
+                        {
+                            "start": "0.25",
+                            "density": 0.15561323815704123
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": "0.08"
+                    }
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": "0.00",
+                            "end": "0.10",
+                            "density": 0.6649511065362866
+                        },
+                        {
+                            "start": "0.10",
+                            "end": "0.25",
+                            "density": 0.18013381369017054
+                        },
+                        {
+                            "start": "0.25",
+                            "density": 0.1549150797735467
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": "0.14"
+                    }
+                }
+            },
+            {
+                "_id": "ckocoeerh0003vjtdfims92ct",
+                "name": "first_contentful_paint",
+                "PHONE": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 1000,
+                            "density": 0.5474233529028071
+                        },
+                        {
+                            "start": 1000,
+                            "end": 3000,
+                            "density": 0.39556425309850135
+                        },
+                        {
+                            "start": 3000,
+                            "density": 0.05701239399869602
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 1525
+                    }
+                },
+                "DESKTOP": {
+                    "histogram": [
+                        {
+                            "start": 0,
+                            "end": 1000,
+                            "density": 0.7345399698340853
+                        },
+                        {
+                            "start": 1000,
+                            "end": 3000,
+                            "density": 0.2327802916038203
+                        },
+                        {
+                            "start": 3000,
+                            "density": 0.0326797385620916
+                        }
+                    ],
+                    "percentiles": {
+                        "p75": 1071
+                    }
+                }
+            }
+        ],
+        "dateAdded": "2021-05-06T08:40:13.252Z",
+        "dateModified": "2021-05-06T08:40:13.252Z",
+        "_id": "6093b41b0cd69b4b1b70a3be",
+        "pageId": "60888abbeec36917ee5cb9b2",
         "__v": 0
     }
 ]
