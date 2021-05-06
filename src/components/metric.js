@@ -26,7 +26,7 @@ const Metric = ({ metric }) => {
 
   useEffect(() => {
     badgeRef.current.style.setProperty(`--score`, `${score}`);
-  }, [metric])
+  }, [selectedDevice])
 
   return (
     <>
