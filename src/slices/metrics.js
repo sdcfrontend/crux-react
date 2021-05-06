@@ -1,4 +1,4 @@
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice, createEntityAdapter, createSelector } from '@reduxjs/toolkit';
 import { fetchRecords } from './records';
 
 const metricsAdapter = createEntityAdapter({
@@ -26,3 +26,10 @@ export const {
   selectAll: selectAllMetrics,
   selectTotal: selectTotalMetrics
 } = metricsAdapter.getSelectors(state => state.metrics);
+
+export const selectMetricEntity = (id) => {
+  return createSelector(
+    state => selectMetricById(state, id),
+    metric => metric
+  )
+}

@@ -1,15 +1,26 @@
-const Settings = ({ metrics, chosenMetrics, setChosenMetrics }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelectedMetrics } from '../slices/ui';
+import { selectRecordIds, selectMetricsByRecordId } from "../slices/records";
+
+const Settings = () => {
+  const selectedMetrics = useSelector(state => state.ui.selectedMetrics);
+  const recordIds = useSelector(selectRecordIds);
+  const metrics = useSelector(selectMetricsByRecordId(recordIds[0]));
+
+  const dispatch = useDispatch();
+
   const handleCheck = (e) => {
+    console.log(e.target.checked)
     e.target.checked
-      ? setChosenMetrics([ ...chosenMetrics, e.target.value ])
-      : setChosenMetrics(chosenMetrics.filter(chosenMetric => chosenMetric !== e.target.value))
+      ? dispatch(setSelectedMetrics([ ...selectedMetrics, e.target.value ]))
+      : dispatch(setSelectedMetrics(selectedMetrics.filter(selectedMetric => selectedMetric !== e.target.value)))
   }
 
   return (
     <div className="ui-panel">
-      {metrics?.map((metric, i) => (
+      {metrics.map((metric, i) => (
         <div key={i} className="flex">
-          <input onChange={handleCheck} type="checkbox" value={metric.name} checked={`${chosenMetrics.includes(metric.name) ? 'checked': ''}`}/>
+          <input onChange={handleCheck} type="checkbox" value={metric.name} checked={`${selectedMetrics.includes(metric.name) ? 'checked': ''}`}/>
           {metric.name}
         </div>
       ))}

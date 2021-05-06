@@ -1,6 +1,6 @@
 import Metrics from '../components/metrics';
 
-const Targets = ({ metrics, chosenMetrics }) => {
+const Targets = () => {
   return (
     <>
       <div className="ui-control-block flex flex-h-end" data-joined>
@@ -12,10 +12,7 @@ const Targets = ({ metrics, chosenMetrics }) => {
         </div>
       </div>
 
-      <Metrics
-        metrics={metrics}
-        chosenMetrics={chosenMetrics}
-      />
+      <Metrics/>
     </>
   );
 }

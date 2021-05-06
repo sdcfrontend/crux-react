@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { devices, metrics } from '../lib/defaults';
+import { devicesDefaults, metricsDefaults } from '../lib/defaults';
 import { fetchSites } from './sites';
+import { fetchRecords } from './records';
 
 export const initialiseApp = () => async (dispatch, getState) => {
   const entities = await dispatch(fetchSites());
@@ -9,6 +10,7 @@ export const initialiseApp = () => async (dispatch, getState) => {
 
   dispatch(setSelectedSite(initialSite));
   dispatch(setSelectedPage(initialPage));
+  dispatch(fetchRecords(initialPage));
 
   return entities;
 }
@@ -16,8 +18,8 @@ export const initialiseApp = () => async (dispatch, getState) => {
 const initialState = {
   selectedSite: '',
   selectedPage: '',
-  selectedDevice: devices.selectedDevice,
-  selectedMetrics: metrics.selectedMetrics
+  selectedDevice: devicesDefaults.selectedDevice,
+  selectedMetrics: metricsDefaults.selectedMetrics,
 }
 
 const uiSlice = createSlice({
@@ -40,4 +42,4 @@ const uiSlice = createSlice({
 })
 
 export const { setSelectedSite, setSelectedPage, setSelectedDevice, setSelectedMetrics } = uiSlice.actions
-export default uiSlice.reducer
+export default uiSlice.reducer;

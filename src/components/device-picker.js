@@ -1,8 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { setSelectedDevice } from "../slices/ui";
 
 const DevicePicker = () => {
-  const selectedDevice = useSelector(state => state.ui.selectedDevice);
+  const selectedDevice = useSelector(state => state.ui.selectedDevice, shallowEqual);
 
   const dispatch = useDispatch();
 

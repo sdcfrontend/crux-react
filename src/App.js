@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch} from 'react-redux';
-import { initialiseApp } from "./slices/ui";
 import { fetchRecords } from "./slices/records";
 
 import Targets from './pages/targets';
@@ -10,6 +9,7 @@ import NotFound from './pages/not-found';
 
 import Header from './components/header';
 import Tabs from './components/tabs';
+import Metrics from './components/metrics';
 import Settings from './components/settings';
 
 function App() {
@@ -19,14 +19,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(initialiseApp());
-  }, []);
-
-  useEffect(() => {
     if (!selectedPage) return;
 
     dispatch(fetchRecords(selectedPage));
-  }, [selectedPage])
+  }, [selectedPage]);
 
   return (
     <>
@@ -36,18 +32,15 @@ function App() {
         <Tabs/>
         <div className="wrap">
           <div className="flex-col gap-m mar-b-xl ui-panel">
-            {sitesLoading
-              ? <h4>Loading...</h4>
-              : <Switch>
-                  <Route path="/" exact>
-                    <Targets/>
-                  </Route>
-                  <Route path="/compare">
-                    <Compare/>
-                  </Route>
-                  <Route component={NotFound} />
-                </Switch>
-            }
+            <Switch>
+              <Route path="/" exact>
+                <Targets/>
+              </Route>
+              <Route path="/compare">
+                <Compare/>
+              </Route>
+              <Route component={NotFound} />
+            </Switch>
           </div>
         </div>
     </Router>
