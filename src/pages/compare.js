@@ -1,6 +1,6 @@
 import Metrics from '../components/metrics';
 
-const Compare = ({ metrics, chosenMetrics, metricsLoading }) => {
+const Compare = ({ metrics, chosenMetrics }) => {
   return (
     <>
       <div className="ui-control-block flex flex-h-end" data-joined>
@@ -15,7 +15,6 @@ const Compare = ({ metrics, chosenMetrics, metricsLoading }) => {
       <Metrics
         metrics={metrics}
         chosenMetrics={chosenMetrics}
-        metricsLoading={metricsLoading}
       />
     </>
   );

@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 const Metric = ({ metric }) => {
+  const selectedDevice = useSelector(state => state.ui.selectedDevice);
   const badgeRef = useRef();
 
   const nameToNiceName = {
@@ -11,7 +13,7 @@ const Metric = ({ metric }) => {
   };
 
   const name = nameToNiceName[metric.name];
-  const score = Math.floor(metric.histogram[0].density * 100);
+  const score = Math.floor(metric[selectedDevice].histogram[0].density * 100);
 
   const binLabels = ['good', 'average', 'bad'];
   let chosenLabel = binLabels[2];

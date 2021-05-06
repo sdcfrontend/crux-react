@@ -1,15 +1,22 @@
-const DevicePicker = ({ currentDevice, setCurrentDevice }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelectedDevice } from "../slices/ui";
+
+const DevicePicker = () => {
+  const selectedDevice = useSelector(state => state.ui.selectedDevice);
+
+  const dispatch = useDispatch();
+
   const handleDeviceChange = (e) => {
-    setCurrentDevice(e.target.value);
+    dispatch(setSelectedDevice(e.target.value));
   }
 
   return (
     <div className="ui-control-block" data-joined>
       <div className="ui-control">
-        <button className={`ui-control-button${currentDevice === 'PHONE' ? ' ui-control--active' : ''}`} onClick={handleDeviceChange} value="PHONE">Mobile</button>
+        <button className={`ui-control-button${selectedDevice === 'PHONE' ? ' ui-control--active' : ''}`} onClick={handleDeviceChange} value="PHONE">Mobile</button>
       </div>
       <div className="ui-control">
-        <button className={`ui-control-button${currentDevice === 'DESKTOP' ? ' ui-control--active' : ''}`} onClick={handleDeviceChange} value="DESKTOP">Desktop</button>
+        <button className={`ui-control-button${selectedDevice === 'DESKTOP' ? ' ui-control--active' : ''}`} onClick={handleDeviceChange} value="DESKTOP">Desktop</button>
       </div>
     </div>
   );
