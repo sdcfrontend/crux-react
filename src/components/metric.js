@@ -25,7 +25,7 @@ const Metric = ({ metric }) => {
       <div className="flex gap-m">
         <div className="flex-grow">
           <BarChart sitesData={[metric,metric,metric]} labels={['site1','site2','site3']}/>
-          <LineChart sitesData={[metric,metric,metric]} labels={['site1','site2','site3']}/>
+          {/* <LineChart sitesData={[metric,metric,metric]} labels={['site1','site2','site3']}/> */}
         </div>
 
         <DataBadge score={score}/>

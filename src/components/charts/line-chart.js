@@ -55,7 +55,7 @@ const LineChart = ({ sitesData, labels }) => {
   };
 
   const config = {
-    type: 'line',
+    type: 'bar',
     data: {
       labels,
       datasets: createDataSets(sitesData)
