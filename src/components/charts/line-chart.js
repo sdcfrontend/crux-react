@@ -65,6 +65,7 @@ const LineChart = ({ sitesData, labels }) => {
       plugins: {
         tooltip: { ...tooltipOptions }
       },
+      grouped: true,
       indexAxis: 'y',
       scales: {
         x: {
