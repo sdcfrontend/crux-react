@@ -10,7 +10,6 @@ const Settings = () => {
   const dispatch = useDispatch();
 
   const handleCheck = (e) => {
-    console.log(e.target.checked)
     e.target.checked
       ? dispatch(setSelectedMetrics([ ...selectedMetrics, e.target.value ]))
       : dispatch(setSelectedMetrics(selectedMetrics.filter(selectedMetric => selectedMetric !== e.target.value)))

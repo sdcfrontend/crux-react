@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import { useSelector } from 'react-redux';
 
 const DataBadge = ({ score }) => {
@@ -39,4 +39,4 @@ const DataBadge = ({ score }) => {
   );
 }
 
-export default DataBadge;
+export default memo(DataBadge);

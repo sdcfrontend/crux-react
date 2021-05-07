@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { selectMetricEntity } from "../slices/metrics";
 import DataBadge from './data-badge';
+import BarChart from './charts/bar-chart'
 
 const Metric = ({ metric }) => {
   const selectedDevice = useSelector(state => state.ui.selectedDevice);
-
+  
   const nameToNiceName = {
     first_contentful_paint: 'First Contentful Paint',
     largest_contentful_paint: 'Largest Contentful Paint',
@@ -22,7 +22,10 @@ const Metric = ({ metric }) => {
 
       <div className="text-supporting text-em mar-b-l">Lower scores best</div>
       <div className="flex gap-m">
-        <div className="flex-grow">GRAPH</div>
+        <div className="flex-grow">
+          <BarChart sitesData={[metric,metric,metric]} labels={['site1','site2','site3']}/>
+        </div>
+
         <DataBadge score={score}/>
       </div>
     </div>
