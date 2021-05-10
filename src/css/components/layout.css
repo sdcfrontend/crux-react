@@ -1,0 +1,36 @@
+.layout-main {
+  display: flex;
+  --side-col-width: clamp(200px, 35%, 300px);
+  position: relative;
+  overflow: hidden;
+}
+
+.layout-main-col--body {
+  width: calc(100% - var(--side-col-width));
+}
+
+.layout-main-col--side {
+  width: var(--side-col-width);
+  background: red;
+  will-change: transform;
+}
+
+@media all and (max-width: 650px) {
+  .layout-main-col--body {
+    width: 100%;
+  }
+
+  .layout-main-col--side {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    transition: transform 0.33s;
+    transform: translateX(100%);
+    z-index: 3;
+  }
+
+  .layout-main--toggle .layout-main-col--side {
+    transform: translateX(0);
+  } 
+}
