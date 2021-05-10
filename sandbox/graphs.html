@@ -14,18 +14,35 @@
     <div class="tooltip" data-role="tooltip"></div>
     <h1>Cumulative Layout Shift</h1>
     <h5>User breakdown %</h5>
-    <div class="chart" id="chart-1">
-        <div class="chart-key gap-s"><span class="metric-good">% Good</span><span class="metric-average">%
-          Average</span><span class="metric-bad">% Bad</span></div>
-        <div class="chart-wrap">
-            <div class="chart-target" data-label="80% target" style="--pc: 80"></div>
-            <div class="chart-rail" data-role="rail">
-                <div class="chart-body" data-role="body">
-                    <canvas width="160" height="90" data-role="canvas"></canvas>
+    <button class="layout-main-open" data-id="layout-1" data-role="layout-toggle" data-toggle-class="layout-main--toggle">open</button>
+    <div class="layout-main gap-l" id="layout-1">
+      <div class="layout-main-col layout-main-col--body">
+        <div class="chart" id="chart-1">
+            <div class="chart-key gap-s"><span class="metric-good">% Good</span><span class="metric-average">%
+              Average</span><span class="metric-bad">% Bad</span></div>
+            <div class="chart-wrap">
+                <div class="chart-target" data-label="80% target" style="--pc: 80"></div>
+                <div class="chart-rail" data-role="rail">
+                    <div class="chart-body" data-role="body">
+                        <canvas width="160" height="90" data-role="canvas"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
+      </div>
+      <div class="layout-main-col layout-main-col--side">side col</div>
     </div>
+
+    <script>
+
+      document.querySelectorAll('[data-role="layout-toggle"]').forEach((item) => {
+        item.onclick = () => {
+          console.log(item.dataset);
+          document.querySelector(`#${item.dataset.id}`).classList.toggle(`${item.dataset.toggleClass}`);
+        }
+      })
+    </script>
+    
 
     <h5>75pc score</h5>
     <div class="chart" id="chart-2">
