@@ -1,4 +1,4 @@
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice, createEntityAdapter, createSelector } from '@reduxjs/toolkit';
 import { fetchSites } from './sites';
 
 const pagesAdapter = createEntityAdapter({
@@ -13,7 +13,7 @@ export const slice = createSlice({
     [fetchSites.fulfilled]: (state, action) => {
       pagesAdapter.upsertMany(state, action.payload.pages);
     }
-  }
+  },
 });
 
 const reducer = slice.reducer;

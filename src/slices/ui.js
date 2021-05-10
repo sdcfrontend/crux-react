@@ -6,7 +6,7 @@ import { fetchRecords } from './records';
 export const initialiseApp = () => async (dispatch, getState) => {
   const entities = await dispatch(fetchSites());
   const initialSite = getState().sites.ids[0];
-  const initialPage = getState().sites.entities[initialSite].pages[0];
+  const initialPage = getState().sites.entities[initialSite]?.pages[0];
 
   dispatch(setSelectedSite(initialSite));
   dispatch(setSelectedPage(initialPage));
@@ -20,6 +20,7 @@ const initialState = {
   selectedPage: '',
   selectedDevice: devicesDefaults.selectedDevice,
   selectedMetrics: metricsDefaults.selectedMetrics,
+  comparisonsEnabled: false,
 }
 
 const uiSlice = createSlice({
@@ -38,8 +39,11 @@ const uiSlice = createSlice({
     setSelectedMetrics: (state, action) => {
       state.selectedMetrics = action.payload
     },
+    setComparisonsEnabled: (state, action) => {
+      state.comparisonsEnabled = action.payload
+    },
   },
 })
 
-export const { setSelectedSite, setSelectedPage, setSelectedDevice, setSelectedMetrics } = uiSlice.actions
+export const { setSelectedSite, setSelectedPage, setSelectedDevice, setSelectedMetrics, setComparisonsEnabled } = uiSlice.actions
 export default uiSlice.reducer;

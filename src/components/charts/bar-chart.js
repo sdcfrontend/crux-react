@@ -47,7 +47,7 @@ const BarChart = ({ sitesData, labels }) => {
     external: context => {
       const parentDims = context.chart.ctx.canvas.parentNode.getBoundingClientRect();
 
-      tooltip.current.style.setProperty('left', `${context.tooltip.caretX - Math.abs(parentDims.left)}px`);
+      tooltip.current.style.setProperty('left', `${context.tooltip.caretX}px`);
       tooltip.current.style.setProperty('top', `${context.tooltip.caretY}px`);
       tooltip.current.style.setProperty('opacity', context.tooltip.opacity);
       tooltip.current.innerHTML = `${context.tooltip.title}<br><b>${context.tooltip.body.reduceRight((a, b, c, d) => `${a + b.lines}, `, []).slice(0, -2)}</b>`;

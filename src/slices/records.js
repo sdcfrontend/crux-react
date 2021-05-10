@@ -9,8 +9,8 @@ const recordsAdapter = createEntityAdapter({
 export const fetchRecords = createAsyncThunk(
   'records/selectAllRecords',
   async pageId => {
-    const response = await fetch('./data/records.json')
-    // const response = await fetch(`http://localhost:4000/records/${pageId}`)
+    // const response = await fetch('./data/records.json')
+    const response = await fetch(`http://localhost:4000/records/${pageId}`)
     const data = await response.json();
     const normalized = normalize(data, arrayOfRecords);
 
@@ -23,7 +23,6 @@ export const slice = createSlice({
   initialState: recordsAdapter.getInitialState({
     loading: false,
     error: false,
-    ids: [],
   }),
   reducers: {},
   extraReducers: {
