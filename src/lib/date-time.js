@@ -1,0 +1,1 @@
+export const beforeToday = date => date < new Date(new Date().toDateString());

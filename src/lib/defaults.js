@@ -1,9 +1,11 @@
-export const devicesDefaults = {
-  selectedDevice: 'PHONE',
+export const formFactorsDefaults = {
+  formFactors: ['PHONE', 'DESKTOP'],
+  selectedFormFactor: 'PHONE',
 }
 
 export const metricsDefaults = {
-  selectedMetrics: ['largest_contentful_paint', 'first_input_delay', 'cumulative_layout_shift']
+  metrics: ['largest_contentful_paint', 'first_input_delay', 'cumulative_layout_shift', 'first_contentful_paint'],
+  selectedMetrics: ['largest_contentful_paint', 'first_input_delay', 'cumulative_layout_shift'],
 }
 
 export const chartOptions = {
@@ -11,5 +13,5 @@ export const chartOptions = {
   maintainAspectRatio: true,
   layout: {
     padding: 0
-  }
+  },
 }

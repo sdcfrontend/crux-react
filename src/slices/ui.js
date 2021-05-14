@@ -1,26 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { devicesDefaults, metricsDefaults } from '../lib/defaults';
-import { fetchSites } from './sites';
-import { fetchRecords } from './records';
-
-export const initialiseApp = () => async (dispatch, getState) => {
-  const entities = await dispatch(fetchSites());
-  const initialSite = getState().sites.ids[0];
-  const initialPage = getState().sites.entities[initialSite]?.pages[0];
-
-  dispatch(setSelectedSite(initialSite));
-  dispatch(setSelectedPage(initialPage));
-  dispatch(fetchRecords(initialPage));
-
-  return entities;
-}
+import { formFactorsDefaults, metricsDefaults } from '../lib/defaults';
 
 const initialState = {
   selectedSite: '',
   selectedPage: '',
-  selectedDevice: devicesDefaults.selectedDevice,
+  selectedFormFactor: formFactorsDefaults.selectedFormFactor,
   selectedMetrics: metricsDefaults.selectedMetrics,
-  comparisonsEnabled: false,
 }
 
 const uiSlice = createSlice({
@@ -33,17 +18,14 @@ const uiSlice = createSlice({
     setSelectedPage: (state, action) => {
       state.selectedPage = action.payload
     },
-    setSelectedDevice: (state, action) => {
-      state.selectedDevice = action.payload
+    setSelectedFormFactor: (state, action) => {
+      state.selectedFormFactor = action.payload
     },
     setSelectedMetrics: (state, action) => {
       state.selectedMetrics = action.payload
     },
-    setComparisonsEnabled: (state, action) => {
-      state.comparisonsEnabled = action.payload
-    },
   },
 })
 
-export const { setSelectedSite, setSelectedPage, setSelectedDevice, setSelectedMetrics, setComparisonsEnabled } = uiSlice.actions
+export const { setSelectedSite, setSelectedPage, setSelectedFormFactor, setSelectedMetrics } = uiSlice.actions
 export default uiSlice.reducer;

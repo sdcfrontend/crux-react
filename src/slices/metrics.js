@@ -1,5 +1,6 @@
 import { createSlice, createEntityAdapter, createSelector } from '@reduxjs/toolkit';
 import { fetchRecords } from './records';
+import { fetchComparisonMetrics, deleteComparison } from './comparisons';
 
 const metricsAdapter = createEntityAdapter({
   selectId: metric => metric._id
@@ -12,7 +13,13 @@ export const slice = createSlice({
   extraReducers: {
     [fetchRecords.fulfilled]: (state, action) => {
       metricsAdapter.upsertMany(state, action.payload.metrics);
-    }
+    },
+    [fetchComparisonMetrics.fulfilled]: (state, action) => {
+      metricsAdapter.upsertMany(state, action.payload.metrics);
+    },
+    [deleteComparison]: (state, action) => {
+      action.payload.metricsIds?.length && metricsAdapter.removeMany(state, action.payload.metricsIds);
+    },
   }
 });
 
@@ -27,7 +34,7 @@ export const {
   selectTotal: selectTotalMetrics
 } = metricsAdapter.getSelectors(state => state.metrics);
 
-export const selectMetricEntity = (id) => {
+export const selectMetricEntity = id => {
   return createSelector(
     state => selectMetricById(state, id),
     metric => metric

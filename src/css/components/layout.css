@@ -5,17 +5,17 @@
   overflow: hidden;
 }
 
-.layout-main-col--body {
+.layout-main-body {
   width: calc(100% - var(--side-col-width));
 }
 
-.layout-main-col--side {
+.layout-main-side {
   width: var(--side-col-width);
-  background: red;
   will-change: transform;
+  border-left: 1px solid var(--border-color);
 }
 
-@media all and (max-width: 650px) {
+/* @media all and (max-width: 650px) {
   .layout-main-col--body {
     width: 100%;
   }
@@ -33,4 +33,8 @@
   .layout-main--toggle .layout-main-col--side {
     transform: translateX(0);
   } 
+} */
+
+.pos-rel {
+  position: relative;
 }

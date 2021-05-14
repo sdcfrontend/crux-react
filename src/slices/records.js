@@ -1,6 +1,7 @@
 import { createSlice, createEntityAdapter, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 import { normalize } from 'normalizr';
 import { arrayOfRecords } from '../schemas';
+import { beforeToday } from '../lib/date-time'
 
 const recordsAdapter = createEntityAdapter({
   selectId: record => record._id
@@ -18,9 +19,16 @@ export const fetchRecords = createAsyncThunk(
   }
 );
 
+export const maybeFetchRecords = pageId => async (dispatch, getState) => {
+  const lastUpdated = getState().records.lastUpdated;
+
+  (!lastUpdated || beforeToday(lastUpdated)) && dispatch(fetchRecords(pageId));
+}
+
 export const slice = createSlice({
   name: 'records',
   initialState: recordsAdapter.getInitialState({
+    lastUpdated: false,
     loading: false,
     error: false,
   }),
@@ -31,6 +39,7 @@ export const slice = createSlice({
     },
     [fetchRecords.fulfilled]: (state, action) => {
       recordsAdapter.setAll(state, action.payload.records);
+      state.lastUpdated = Date.now();
       state.loading = false;
     },
     [fetchRecords.rejected]: (state, action) => {
@@ -64,5 +73,29 @@ export const selectMetricsByRecordId = recordId => {
         .map(p => metrics[p])
         .filter(metric => record.metrics.includes(metric._id));
     }
+  )
+}
+
+export const selectMetricDataByRecordId = (metricType, recordId) => {
+  if (!recordId) return () => [];
+
+  return createSelector(
+    [
+      state => selectRecordById(state, recordId),
+      state => state.metrics.ids.map(id => state.metrics.entities[id])
+    ],
+    (record, metrics) => {
+      return Object.keys(metrics)
+        .map(p => metrics[p])
+        .filter(metric => record.metrics.includes(metric._id))
+        .filter(metric => metric.name === metricType);
+    }
+  )
+}
+
+export const selectLatestRecordId = () => {
+  return createSelector(
+    state => selectRecordIds(state),
+    recordIds => recordIds[0]
   )
 }

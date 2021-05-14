@@ -1,4 +1,4 @@
-import Metrics from '../components/metrics';
+import Metrics from '../components/metrics/metrics';
 
 const Targets = () => {
   return (
@@ -12,7 +12,7 @@ const Targets = () => {
         </div>
       </div>
 
-      <Metrics/>
+      <Metrics showBadge={true}/>
     </>
   );
 }

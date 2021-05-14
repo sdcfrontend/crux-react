@@ -1,0 +1,36 @@
+.ui-icon-overlay {
+  --icon-fill: var(--text-color);
+  --overlay-bg: white;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  place-items: center;
+  pointer-events: none;
+  display: none;
+}
+
+.ui-icon-overlay:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--overlay-bg);
+  opacity: 0.5;
+}
+
+.ui-icon-overlay[show="true"] {
+  display: grid;
+}
+
+.ui-icon-overlay svg {
+  width: var(--font-scale-m);
+  height: var(--font-scale-m);
+  fill: var(--icon-fill);
+  animation: var(--icon-animation) 1s infinite linear;
+}

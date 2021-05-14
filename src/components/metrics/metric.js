@@ -1,11 +1,10 @@
 import { useSelector } from 'react-redux';
 import DataBadge from './data-badge';
-import BarChart from './charts/bar-chart'
-import LineChart from './charts/line-chart'
+import BarChart from '../charts/bar-chart'
+import LineChart from '../charts/line-chart'
 
-const Metric = ({ metric }) => {
-  const selectedDevice = useSelector(state => state.ui.selectedDevice);
-
+const Metric = ({ metric, showBadge }) => {
+  const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
   const nameToNiceName = {
     first_contentful_paint: 'First Contentful Paint',
     largest_contentful_paint: 'Largest Contentful Paint',
@@ -14,21 +13,20 @@ const Metric = ({ metric }) => {
   };
 
   const name = nameToNiceName[metric.name];
-  const score = Math.floor(metric[selectedDevice].histogram[0].density * 100);
+  // const score = Math.floor(metric[selectedFormFactor].histogram[0].density * 100);
 
   return (
     <>
-    <div className="ui-panel-divider pad-b-xl">
+    <div className="ui-panel-divider mar-b-l pad-b-xl">
       <h2 className="display-3 mar-b-xs">{name}</h2>
 
       <div className="text-supporting text-em mar-b-l">Lower scores best</div>
       <div className="flex gap-m">
         <div className="flex-grow">
-          <BarChart sitesData={[metric,metric,metric]} labels={['site1','site2','site3']}/>
+          <BarChart sitesData={metric.pages}/>
           {/* <LineChart sitesData={[metric,metric,metric]} labels={['site1','site2','site3']}/> */}
         </div>
-
-        <DataBadge score={score}/>
+        {/* {showBadge && <DataBadge score={score}/>} */}
       </div>
     </div>
     </>

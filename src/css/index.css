@@ -4,6 +4,7 @@
 @import 'base/reset.css';
 @import 'base/elements.css';
 @import 'components/header.css';
+@import 'utilities/animation.css';
 @import 'utilities/layout.css';
 @import 'utilities/spacing.css';
 @import 'utilities/text.css';
@@ -12,5 +13,6 @@
 @import 'components/ui-controls.css';
 @import 'components/ui-panels.css';
 @import 'components/ui-badge.css';
+@import 'components/ui-icon-overlay.css';
 @import 'components/layout.css';
 @import 'theme/theme-dark.css';

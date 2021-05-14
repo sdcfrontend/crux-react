@@ -2,7 +2,7 @@ import { useEffect, useRef, memo } from 'react';
 import { useSelector } from 'react-redux';
 
 const DataBadge = ({ score }) => {
-  const selectedDevice = useSelector(state => state.ui.selectedDevice);
+  const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
   const badgeRef = useRef();
 
   const binLabels = ['good', 'average', 'bad'];
@@ -15,8 +15,8 @@ const DataBadge = ({ score }) => {
   }
 
   useEffect(() => {
-    badgeRef.current.style.setProperty(`--score`, `${score}`);
-  }, [score, selectedDevice])
+    badgeRef.current.style.setProperty('--score', score);
+  }, [score, selectedFormFactor])
 
   return (
     <div className="ui-badge">

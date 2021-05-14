@@ -26,3 +26,10 @@ export const {
   selectAll: selectAllPages,
   selectTotal: selectTotalPages
 } = pagesAdapter.getSelectors(state => state.pages);
+
+export const selectPageEntity = pageId => (
+  createSelector(
+    state => selectPageById(state, pageId),
+    page => page
+  )
+);

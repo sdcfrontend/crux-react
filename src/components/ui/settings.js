@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setSelectedMetrics } from '../slices/ui';
-import { selectRecordIds, selectMetricsByRecordId } from "../slices/records";
+import { setSelectedMetrics } from '../../slices/ui';
+import { selectRecordIds, selectMetricsByRecordId } from "../../slices/records";
 
 const Settings = () => {
   const selectedMetrics = useSelector(state => state.ui.selectedMetrics);

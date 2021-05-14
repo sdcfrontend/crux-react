@@ -1,14 +1,33 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { fetchComparisons } from '../slices/comparisons';
-import Metrics from '../components/metrics';
+import { memo } from 'react';
+import ComparisonCharts from '../components/comparisons/comparison-charts';
+import ComparisonControls from '../components/comparisons/comparison-controls';
 
 const Compare = () => {
-  const selectedSite = useSelector(state => state.ui.selectedSite);
+  console.log('compare page')
 
-  useEffect(() => {
-
-  }, [selectedSite])
+  // const createCombinedMetrics = (pageMetrics, comparisonMetrics) => {
+  //   return pageMetrics.map((metric, index) => ({
+  //     ...metric,
+  //     pages: [
+  //       {
+  //         page: 'selectedPageEntity.url',
+  //         PHONE: metric['PHONE'],
+  //         DESKTOP: metric['DESKTOP'],
+  //       },
+  //       ...comparisonMetrics.reduce((loadedComparisons, comparisonMetric) => (
+  //         comparisonMetric.stored
+  //           ? [ ...loadedComparisons,
+  //               {
+  //                 page: comparisonMetric.url,
+  //                 PHONE: comparisonMetric.data[index]['PHONE'],
+  //                 DESKTOP: comparisonMetric.data[index]['DESKTOP'],
+  //               }
+  //             ]
+  //           : loadedComparisons
+  //       ), [])
+  //     ]
+  //   }))
+  // }
 
   return (
     <>
@@ -21,9 +40,17 @@ const Compare = () => {
         </div>
       </div>
 
-      <Metrics/>
+      <div className="layout-main gap-l">
+        <div className="layout-main-body">
+          <ComparisonCharts/>
+        </div>
+
+        <div className="layout-main-side pad-l-m">
+          <ComparisonControls/>
+        </div>
+      </div>
     </>
   );
 }
 
-export default Compare;
+export default memo(Compare);

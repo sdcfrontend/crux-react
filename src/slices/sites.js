@@ -21,7 +21,7 @@ export const fetchSites = createAsyncThunk(
 export const slice = createSlice({
   name: 'sites',
   initialState: sitesAdapter.getInitialState({
-    loading: false,
+    loading: true,
     error: false,
   }),
   reducers: {},

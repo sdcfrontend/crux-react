@@ -10,7 +10,7 @@ Chart.defaults.font.size = 11;
 const LineChart = ({ sitesData, labels }) => {
   const [chartInstance, setChartInstance] = useState(null);
   
-  const selectedDevice = useSelector(state => state.ui.selectedDevice);
+  const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
 
   const tooltip = useRef();
   const chart = useRef(null);
@@ -37,7 +37,7 @@ const LineChart = ({ sitesData, labels }) => {
     {
       ...dataset,
       data: metrics.map(metric => (
-        makeScore(metric[selectedDevice].histogram[index].density)
+        makeScore(metric[selectedFormFactor].histogram[index].density)
       ))
     }
   ));
@@ -89,7 +89,7 @@ const LineChart = ({ sitesData, labels }) => {
 
     chartInstance.data.datasets = createDataSets(sitesData);
     chartInstance.update();
-  }, [selectedDevice]);
+  }, [selectedFormFactor]);
 
   useEffect(() => {
     if (chartInstance) chartInstance.destroy();

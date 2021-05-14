@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { Chart, registerables } from 'chart.js';
 import { chartOptions } from '../../lib/defaults';
@@ -7,10 +7,11 @@ Chart.register(...registerables);
 Chart.defaults.plugins.legend.display = false;
 Chart.defaults.font.size = 11;
 
-const BarChart = ({ sitesData, labels }) => {
+const BarChart = ({ chartData }) => {
+  console.log(chartData)
   const [chartInstance, setChartInstance] = useState(null);
   
-  const selectedDevice = useSelector(state => state.ui.selectedDevice);
+  const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
 
   const tooltip = useRef();
   const chart = useRef(null);
@@ -37,16 +38,16 @@ const BarChart = ({ sitesData, labels }) => {
     {
       ...dataset,
       data: metrics.map(metric => (
-        makeScore(metric[selectedDevice].histogram[index].density)
+        makeScore(metric[selectedFormFactor].histogram[index].density)
       ))
     }
   ));
 
+  const createLabels = sites => sites.map(site => site.page);
+
   const tooltipOptions = {
     enabled: false,
     external: context => {
-      const parentDims = context.chart.ctx.canvas.parentNode.getBoundingClientRect();
-
       tooltip.current.style.setProperty('left', `${context.tooltip.caretX}px`);
       tooltip.current.style.setProperty('top', `${context.tooltip.caretY}px`);
       tooltip.current.style.setProperty('opacity', context.tooltip.opacity);
@@ -57,8 +58,8 @@ const BarChart = ({ sitesData, labels }) => {
   const config = {
     type: 'bar',
     data: {
-      labels,
-      datasets: createDataSets(sitesData)
+      labels: createLabels(chartData),
+      datasets: createDataSets(chartData)
     },
     options: {
       ...chartOptions,
@@ -85,13 +86,15 @@ const BarChart = ({ sitesData, labels }) => {
   };
 
   useEffect(() => {
+    console.log('changed device')
     if (!chartInstance) return;
 
-    chartInstance.data.datasets = createDataSets(sitesData);
+    chartInstance.data.datasets = createDataSets(chartData);
     chartInstance.update();
-  }, [selectedDevice]);
+  }, [selectedFormFactor]);
 
   useEffect(() => {
+    console.log('changed data')
     if (chartInstance) chartInstance.destroy();
 
     chart.current.height = 9 * config.data.labels.length;
@@ -99,7 +102,7 @@ const BarChart = ({ sitesData, labels }) => {
     
     const newChartInstance = new Chart(chart.current, config);
     setChartInstance(newChartInstance);
-  }, []);
+  }, [chartData]);
 
   return (
     <>
@@ -124,4 +127,4 @@ const BarChart = ({ sitesData, labels }) => {
   );
 }
 
-export default BarChart;
+export default memo(BarChart);
