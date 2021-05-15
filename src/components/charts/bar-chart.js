@@ -8,7 +8,6 @@ Chart.defaults.plugins.legend.display = false;
 Chart.defaults.font.size = 11;
 
 const BarChart = ({ chartData }) => {
-  console.log('chart')
   const [chartInstance, setChartInstance] = useState(null);
   
   const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
