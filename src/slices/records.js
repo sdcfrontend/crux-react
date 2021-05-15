@@ -76,7 +76,7 @@ export const selectMetricsByRecordId = recordId => {
   )
 }
 
-export const selectMetricDataByRecordId = (metricType, recordId) => {
+export const selectMetricByRecordId = (recordId, metricType) => {
   if (!recordId) return () => [];
 
   return createSelector(
@@ -86,7 +86,7 @@ export const selectMetricDataByRecordId = (metricType, recordId) => {
     ],
     (record, metrics) => {
       return Object.keys(metrics)
-        .map(p => metrics[p])
+        .map(m => metrics[m])
         .filter(metric => record.metrics.includes(metric._id))
         .filter(metric => metric.name === metricType);
     }

@@ -2,7 +2,8 @@ import { createSlice, createEntityAdapter, createSelector, createAsyncThunk } fr
 import cuid from 'cuid';
 import { formFactorsDefaults, metricsDefaults } from '../lib/defaults';
 import { fetchPageCrUXRecords } from '../lib/google';
-import { selectMetricDataByRecordId } from './records';
+import { selectPageEntity } from './pages'
+import { selectMetricByRecordId } from './records';
 
 const transformRecords = records => {
   return metricsDefaults.metrics.map(metric => {
@@ -29,22 +30,17 @@ export const comparisonsAdapter = createEntityAdapter({
 export const fetchComparisonMetrics = createAsyncThunk(
   'comparisons/fetchMetrics',
   async comparison => {
+    console.log('fetching', comparison)
     try {
-      // const records = await fetchPageCrUXRecords(comparison.url, formFactorsDefaults.formFactors);
-      // const metrics = transformRecords(records);
-      // const metricsIds = metrics.map(metric => metric._id);
+      const records = await fetchPageCrUXRecords(comparison.url, formFactorsDefaults.formFactors);
+      const metrics = transformRecords(records);
+      const metricsIds = metrics.map(metric => metric._id);
 
-      // return { metricsIds, metrics }
-      // return {
-      //   id: comparison._id,
-      //   metricsIds: [],
-      //   metrics: [],
-      // }
-      throw new Error()
+      return { metricsIds, metrics }
     }
 
     catch(error) {
-      throw new Error(comparison)
+      throw new Error(error)
     }
   }
 );
@@ -61,7 +57,6 @@ export const slice = createSlice({
   },
   extraReducers: {
     [fetchComparisonMetrics.pending]: (state, action) => {
-      console.log('loading',action)
       comparisonsAdapter.updateOne(state, {
         id: action.meta.arg._id,
         changes: {
@@ -72,7 +67,6 @@ export const slice = createSlice({
       });
     },
     [fetchComparisonMetrics.fulfilled]: (state, action) => {
-      console.log('success',action)
       comparisonsAdapter.updateOne(state, {
         id: action.meta.arg._id,
         changes: {
@@ -85,7 +79,6 @@ export const slice = createSlice({
       });
     },
     [fetchComparisonMetrics.rejected]: (state, action) => {
-      console.log('fail', action)      
       comparisonsAdapter.updateOne(state, {
         id: action.meta.arg._id,
         changes: {
@@ -148,42 +141,39 @@ export const selectValidActiveComparisons = pageId => (
   )
 );
 
-export const selectValidActiveComparisonMetrics = (pageId, metricType) => (
+export const selectValidActiveComparisonsMetric = (pageId, metricType) => (
   createSelector(
     [
       selectValidActiveComparisons(pageId),
       state => state.metrics.ids.map(id => state.metrics.entities[id])
     ],
-    (comparisons, metrics) => ({comparisons, metrics})
+    (comparisons, metrics) => (
+      comparisons.reduce((comparisonData, comparison) => (
+        [
+          ...comparisonData,
+          ...metrics.reduce((matchingMetrics, metric) => (
+            comparison.metricsIds.includes(metric._id) && metric.name === metricType
+              ? [ ...matchingMetrics, { ...metric, url: comparison.url}]
+              : matchingMetrics
+          ), [])
+        ]
+      ), [])
+    )
   )
 );
 
-// export const selectMetricFromActiveComparisons = (metric, pageId) => (
-//   createSelector(
-//     selectActiveComparisons(pageId),
-//     activeComparisons => activeComparisons.map(comparison => {
-//       const comparisonMetric = comparison.data.filter(dataItem => dataItem.name === metric);
-
-//       const metricData = formFactorsDefaults.formFactors.map(formFactor => (
-//         comparisonMetric[formFactor]
-//       ));
-
-//       return [
-//         ...comparisonMetrics,
-//         {
-          
-//         }
-//       ]
-//     })
-//   )
-// );
-
-export const selectCombinedComparisonMetric = (metric, pageId, recordId) => (
+export const selectCombinedComparisonsMetric = (metricType, pageId, recordId) => (
   createSelector(
     [
-      selectMetricDataByRecordId(metric, recordId),
-      selectActiveComparisons(pageId)
+      selectPageEntity(pageId),
+      selectMetricByRecordId(recordId, metricType),
+      selectValidActiveComparisonsMetric(pageId, metricType)
     ],
-    (pageData, comparisonData) => ({ pageData, comparisonData })
+    (pageEntity, pageMetricData, comparisonData) => (
+      [
+        ...pageMetricData.map(pageData => ({ ...pageData, url: pageEntity.url})),
+        ...comparisonData
+      ]
+    )
   )
 )

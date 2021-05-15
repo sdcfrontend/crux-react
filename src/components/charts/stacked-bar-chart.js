@@ -7,8 +7,7 @@ Chart.register(...registerables);
 Chart.defaults.plugins.legend.display = false;
 Chart.defaults.font.size = 11;
 
-const BarChart = ({ chartData }) => {
-  console.log(chartData)
+const StackedBarChart = ({ chartData }) => {
   const [chartInstance, setChartInstance] = useState(null);
   
   const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
@@ -34,16 +33,16 @@ const BarChart = ({ chartData }) => {
 
   const makeScore = density => Math.floor(density * 100);
 
-  const createDataSets = metrics => initialDatasets.map((dataset, index) => (
+  const createDataSets = pages => initialDatasets.map((dataset, index) => (
     {
       ...dataset,
-      data: metrics.map(metric => (
-        makeScore(metric[selectedFormFactor].histogram[index].density)
+      data: pages.map(page => (
+        makeScore(page[selectedFormFactor].histogram[index].density)
       ))
     }
   ));
 
-  const createLabels = sites => sites.map(site => site.page);
+  const createLabels = sites => sites.map(site => site.url);
 
   const tooltipOptions = {
     enabled: false,
@@ -51,7 +50,7 @@ const BarChart = ({ chartData }) => {
       tooltip.current.style.setProperty('left', `${context.tooltip.caretX}px`);
       tooltip.current.style.setProperty('top', `${context.tooltip.caretY}px`);
       tooltip.current.style.setProperty('opacity', context.tooltip.opacity);
-      tooltip.current.innerHTML = `${context.tooltip.title}<br><b>${context.tooltip.body.reduceRight((a, b, c, d) => `${a + b.lines}, `, []).slice(0, -2)}</b>`;
+      tooltip.current.innerHTML = `${context.tooltip.title}<br><b>${context.tooltip.body.reduceRight((a, b) => `${a + b.lines}, `, []).slice(0, -2)}</b>`;
     }
   };
 
@@ -86,7 +85,6 @@ const BarChart = ({ chartData }) => {
   };
 
   useEffect(() => {
-    console.log('changed device')
     if (!chartInstance) return;
 
     chartInstance.data.datasets = createDataSets(chartData);
@@ -94,7 +92,6 @@ const BarChart = ({ chartData }) => {
   }, [selectedFormFactor]);
 
   useEffect(() => {
-    console.log('changed data')
     if (chartInstance) chartInstance.destroy();
 
     chart.current.height = 9 * config.data.labels.length;
@@ -127,4 +124,4 @@ const BarChart = ({ chartData }) => {
   );
 }
 
-export default memo(BarChart);
+export default memo(StackedBarChart);

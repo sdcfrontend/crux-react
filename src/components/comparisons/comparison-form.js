@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cuid from 'cuid';
-import { addComparison, fetchComparisonMetrics } from '../../slices/comparisons';
+import { addComparison } from '../../slices/comparisons';
 
 const ComparisonForm = () => {
   const [inputText, setInputText] = useState('');
@@ -30,8 +30,6 @@ const ComparisonForm = () => {
       dateModified: Date.now(),
       pageId: selectedPage,
     }));
-
-    dispatch(fetchComparisonMetrics(inputText))
 
     setInputText('');
   }

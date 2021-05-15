@@ -16,7 +16,7 @@ const IconOverlay = ({ icon, iconAnimation, iconFill, overlayBg, showWhen }) => 
     if (iconAnimation) iconRef.current.style.setProperty('--icon-animation', iconAnimation);
     if (iconFill) iconRef.current.style.setProperty('--icon-fill', iconFill);
     if (overlayBg) overlayRef.current.style.setProperty('--overlay-bg', overlayBg);
-  }, []);
+  }, [iconAnimation, iconFill, overlayBg]);
 
   return (
     <span ref={overlayRef} className="ui-icon-overlay" show={showWhen ? "true" : "false"}>

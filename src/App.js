@@ -15,6 +15,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (!selectedPage) return;
+    
     dispatch(maybeFetchRecords(selectedPage));
   }, [selectedPage])
 

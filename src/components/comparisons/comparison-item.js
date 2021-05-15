@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectComparison, updateComparison, deleteComparison } from '../../slices/comparisons';
 import IconOverlay from '../ui/icon-overlay';
@@ -43,4 +44,4 @@ const ComparisonItem = ({ comparisonId }) => {
   );
 }
 
-export default ComparisonItem;
+export default memo(ComparisonItem);

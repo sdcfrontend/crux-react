@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import DataBadge from './data-badge';
-import BarChart from '../charts/bar-chart'
+import BarChart from '../charts/stacked-bar-chart'
 import LineChart from '../charts/line-chart'
 
 const Metric = ({ metric, showBadge }) => {
