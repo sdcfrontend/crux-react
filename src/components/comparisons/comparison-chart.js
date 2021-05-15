@@ -2,12 +2,12 @@ import { memo } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import { metricNiceName } from '../../lib/metrics';
 import { selectCombinedComparisonsMetric } from '../../slices/comparisons';
-
 import StackedBarChart from '../charts/stacked-bar-chart'
+import BarChart from '../charts/bar-chart'
 
 const ComparisonChart = ({ metric, page, record }) => {
   const comparisonData = useSelector(selectCombinedComparisonsMetric(metric, page, record), shallowEqual);
-  console.log('rendering chart')
+  const selectedMetricsType = useSelector(state => state.ui.selectedMetricsType);
 
   return (
     <>
@@ -17,7 +17,8 @@ const ComparisonChart = ({ metric, page, record }) => {
       <div className="text-supporting text-em mar-b-l">Lower scores best</div>
       <div className="flex gap-m">
         <div className="flex-grow">
-          <StackedBarChart chartData={comparisonData}/>
+          {selectedMetricsType === 'GOOD_PC' && <StackedBarChart chartData={comparisonData}/>}
+          {selectedMetricsType === '75_PC' && <BarChart chartData={comparisonData}/>}
         </div>
       </div>
     </div>

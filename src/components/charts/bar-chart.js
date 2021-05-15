@@ -7,7 +7,8 @@ Chart.register(...registerables);
 Chart.defaults.plugins.legend.display = false;
 Chart.defaults.font.size = 11;
 
-const StackedBarChart = ({ chartData }) => {
+const BarChart = ({ chartData }) => {
+  console.log('chart')
   const [chartInstance, setChartInstance] = useState(null);
   
   const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
@@ -15,32 +16,18 @@ const StackedBarChart = ({ chartData }) => {
   const tooltip = useRef();
   const chart = useRef(null);
 
-  const initialDatasets = [
-    {
-      label: 'Good',
-      backgroundColor: '#4db04a',
-      categoryPercentage: 1,
-    }, {
-      label: 'Average',
-      backgroundColor: '#e58a2a',
-      categoryPercentage: 1,
-    }, {
-      label: 'Bad',
-      backgroundColor: '#e6191d',
-      categoryPercentage: 1,
-    }
-  ];
+  const initialDatasetObject = {
+    label: 'Good',
+    backgroundColor: '#4db04a',
+    categoryPercentage: 1,
+  };
 
-  const makeScore = density => Math.floor(density * 1000) / 10;
-
-  const createDataSets = pages => initialDatasets.map((dataset, index) => (
+  const createDataSets = pages => pages.map(page => (
     {
-      ...dataset,
-      data: pages.map(page => (
-        makeScore(page[selectedFormFactor].histogram[index].density)
-      ))
+      ...initialDatasetObject,
+      data: [page[selectedFormFactor].percentiles.p75]
     }
-  ));
+  ))
 
   const createLabels = sites => sites.map(site => site.url);
 
@@ -65,14 +52,14 @@ const StackedBarChart = ({ chartData }) => {
       plugins: {
         tooltip: { ...tooltipOptions }
       },
-      grouped: true,
+      grouped: false,
       indexAxis: 'y',
       scales: {
         x: {
           grid: {
             display: false,
           },
-          stacked: true
+          stacked: false
         },
         y: {
           grid: {
@@ -124,4 +111,4 @@ const StackedBarChart = ({ chartData }) => {
   );
 }
 
-export default memo(StackedBarChart);
+export default memo(BarChart);

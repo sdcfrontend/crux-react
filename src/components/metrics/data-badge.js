@@ -1,8 +1,11 @@
 import { useEffect, useRef, memo } from 'react';
 import { useSelector } from 'react-redux';
 
-const DataBadge = ({ score }) => {
+const DataBadge = ({ metric }) => {
   const selectedFormFactor = useSelector(state => state.ui.selectedFormFactor);
+  console.log(metric)
+
+  const score = Math.floor(metric[selectedFormFactor].histogram[0].density * 100);
   const badgeRef = useRef();
 
   const binLabels = ['good', 'average', 'bad'];

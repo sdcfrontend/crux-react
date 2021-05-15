@@ -7,8 +7,8 @@ const Header = () => {
   const sitesLoading = useSelector(state => state.sites.loading);
 
   const handleClearClick = () => {
-    console.log('Cleared')
-    window.localStorage.removeItem('crux_root');
+    console.log('Local Storage Cleared')
+    window.localStorage.removeItem('persist:crux_root');
   }
 
   return (
@@ -25,7 +25,7 @@ const Header = () => {
           <FormFactorPicker/>
 
           <div className="ui-control">
-            <button className="ui-control-button" onClick={handleClearClick}>Clear History</button>
+            <button className="ui-control-button" onClick={handleClearClick}>Reset App</button>
           </div>
         </div>
       </div>

@@ -10,8 +10,8 @@ const recordsAdapter = createEntityAdapter({
 export const fetchRecords = createAsyncThunk(
   'records/selectAllRecords',
   async pageId => {
-    // const response = await fetch('./data/records.json')
-    const response = await fetch(`http://localhost:4000/records/${pageId}`)
+    const response = await fetch('./data/records.json')
+    // const response = await fetch(`http://localhost:4000/records/${pageId}`)
     const data = await response.json();
     const normalized = normalize(data, arrayOfRecords);
 
@@ -76,10 +76,15 @@ export const selectMetricsByRecordId = recordId => {
   )
 }
 
-export const selectMetricByRecordId = (recordId, metricType) => {
-  if (!recordId) return () => [];
-
+export const selectLatestRecordId = () => {
   return createSelector(
+    state => selectRecordIds(state),
+    recordIds => recordIds[0]
+  )
+}
+
+export const selectMetricByRecordId = (recordId, metricType) => (
+  createSelector(
     [
       state => selectRecordById(state, recordId),
       state => state.metrics.ids.map(id => state.metrics.entities[id])
@@ -91,11 +96,4 @@ export const selectMetricByRecordId = (recordId, metricType) => {
         .filter(metric => metric.name === metricType);
     }
   )
-}
-
-export const selectLatestRecordId = () => {
-  return createSelector(
-    state => selectRecordIds(state),
-    recordIds => recordIds[0]
-  )
-}
+)

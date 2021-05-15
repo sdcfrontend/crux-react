@@ -27,7 +27,7 @@ const ComparisonItem = ({ comparisonId }) => {
   }
 
   return (
-    <div key={comparisonId} className="flex gap-s">
+    <div key={comparisonId} className="flex gap-xs">
       <input
         type="checkbox"
         value={comparison.active}

@@ -6,6 +6,7 @@ const initialState = {
   selectedPage: '',
   selectedFormFactor: formFactorsDefaults.selectedFormFactor,
   selectedMetrics: metricsDefaults.selectedMetrics,
+  selectedMetrics: 'GOOD_PC',
 }
 
 const uiSlice = createSlice({
@@ -24,8 +25,11 @@ const uiSlice = createSlice({
     setSelectedMetrics: (state, action) => {
       state.selectedMetrics = action.payload
     },
+    setSelectedMetricsType: (state, action) => {
+      state.selectedMetricsType = action.payload
+    },
   },
 })
 
-export const { setSelectedSite, setSelectedPage, setSelectedFormFactor, setSelectedMetrics } = uiSlice.actions
+export const { setSelectedSite, setSelectedPage, setSelectedFormFactor, setSelectedMetrics, setSelectedMetricsType } = uiSlice.actions
 export default uiSlice.reducer;
